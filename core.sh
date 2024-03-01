@@ -2,9 +2,26 @@
 
 function finish {
     # Useful if run via drag-drop to prevent terminal closing.
-    read -n 1 -s -p "Done, press any key"
+    read -n 1 -s -p "Done, press any key to exit."
 }
 trap finish EXIT
+
+###########################################
+### MODIFY THESE VARIABLES FOR YOUR INSTALL
+###########################################
+root="/e/SteamLibrary/steamapps/common/IL-2 Sturmovik Battle of Stalingrad"
+PWCGInput="${root}/PWCGBoS/BoSData/Input"
+PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
+sds="${root}/data/Multiplayer/il2dserverCoopProxy.sds"
+
+(
+exec >&2
+# Check that we have common dependencies. If these are installed but can't be found you may need to add your cygwin bin directory to your path.
+type sed || exit
+type ed || exit
+type jq || exit
+type iconv || exit
+)
 
 # Setup
 shopt -s nocaseglob
@@ -15,16 +32,6 @@ script_root="$(cygpath -a "$0")"
 script_root="$(dirname "$script_root")"
 [[ -d "$script_root" ]] && cd "$script_root" || exit
 set +e
-
-(
-exec >&2
-
-type sed || exit
-type ed || exit
-type jq || exit
-type iconv || exit
-
-)
 
 # Colors
 Color_Off='\033[0m'       # Text Reset
@@ -37,17 +44,11 @@ Purple='\033[0;35m'       # Purple
 Cyan='\033[0;36m'         # Cyan
 White='\033[0;37m'        # White
 
-# 
+# Common fragments
 cOK="${Green}OK${Color_Off}"
 cSkip="${Yellow}SKIP${Color_Off}"
 cError="${Red}ERROR${Color_Off}"
 cInvalid="${Red}INVALID${Color_Off}"
-
-## Broadly used variables
-root="/e/SteamLibrary/steamapps/common/IL-2 Sturmovik Battle of Stalingrad"
-PWCGInput="${root}/PWCGBoS/BoSData/Input"
-PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
-sds="${root}/data/Multiplayer/il2dserverCoopProxy.sds"
 
 ed="ed -s -q "
 
@@ -72,9 +73,6 @@ shouldApply () {
 }
 # Halt on errors by default
 shouldHalt=true
-
-
-export PWCGDEBUG=true
 
 mission="${1}"
 mission="$(cygpath -a "${mission}")"
