@@ -44,10 +44,10 @@ cInvalid="${Red}INVALID${Color_Off}"
 
 ## Broadly used variables
 root="/e/SteamLibrary/steamapps/common/IL-2 Sturmovik Battle of Stalingrad"
-ed="/c/cygwin64/bin/ed.exe"
-PWCGInput="/e/SteamLibrary/steamapps/common/IL-2 Sturmovik Battle of Stalingrad/PWCGBoS/BoSData/Input"
-PWCGCampaigns="/e/SteamLibrary/steamapps/common/IL-2 Sturmovik Battle of Stalingrad/PWCGBoS/User/Campaigns"
-sds="/e/SteamLibrary/steamapps/common/IL-2 Sturmovik Battle of Stalingrad/data/Multiplayer/il2dserverCoop.sds"
+ed="/c/cygwin64/bin/ed.exe -s -q "
+PWCGInput="${root}/PWCGBoS/BoSData/Input"
+PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
+sds="${root}/data/Multiplayer/il2dserverCoop.sds"
 
 
 # Apply scripts by default. 
