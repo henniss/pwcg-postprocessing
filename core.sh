@@ -45,10 +45,25 @@ cInvalid="${Red}INVALID${Color_Off}"
 
 ## Broadly used variables
 root="/e/SteamLibrary/steamapps/common/IL-2 Sturmovik Battle of Stalingrad"
-ed="/c/cygwin64/bin/ed.exe -s -q "
 PWCGInput="${root}/PWCGBoS/BoSData/Input"
 PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
-sds="${root}/data/Multiplayer/il2dserverCoop.sds"
+sds="${root}/data/Multiplayer/il2dserverCoopProxy.sds"
+
+ed="ed -s -q "
+
+for d in root PWCGInput PWCGCampaigns ; do 
+    if ! [[ -d "${!d}" ]] ; then 
+        echo "not a directory: $d (${!d})"
+        exit
+    fi
+done
+
+for f in sds ; do 
+    if ! [[ -f "${!f}" ]] ; then 
+        echo "not a file: $f (${!f})"
+        exit
+    fi
+done
 
 
 # Apply scripts by default. 
@@ -68,10 +83,10 @@ subtitles="${mission/.mission/.eng}"
 missionBase="$(basename "${mission}")"
 missionBase=${missionBase/.mission/}
 campaign=$(echo ${missionBase} | cut -d ' ' -f 1)
-echo "${mission}"
-echo "${missionBase}"
-echo "${campaign}"
 [[ -d "${PWCGCampaigns}/${campaign}" ]] || campaign=""
+echo "mission: ${mission}"
+echo "missionBase: ${missionBase}"
+echo "campaign: ${campaign}"
 
 PLAYER_FLIGHT=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "stationed at" | sed "s/.*<br>\(.*\) stationed at \([^<>]*\)<br>.*/\1/")
 ESCORT_FLIGHT=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "Escorted" | sed "s/.*of \(.*\)/\1/")
