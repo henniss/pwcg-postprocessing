@@ -53,10 +53,9 @@ sds="/e/SteamLibrary/steamapps/common/IL-2 Sturmovik Battle of Stalingrad/data/M
 shouldApply () {
     return 0
 }
+# Halt on errors by default
+shouldHalt=true
 
-function componentError {
-    echo -e "${f}: [${cInvalid}]"
-}
 
 export PWCGDEBUG=true
 
@@ -70,6 +69,19 @@ echo "${mission}"
 echo "${missionBase}"
 echo "${campaign}"
 [[ -d "${PWCGCampaigns}/${campaign}" ]] || exit
+
+# Normally I'd just do this, but I get write errors when writing to this fd in cygwin:
+# exec {chan}<> <(:)
+
+PIPE=$(mktemp -u)
+mkfifo $PIPE
+exec {chan}<>$PIPE
+
+
+function componentError {
+    echo -e "${f}: [${cInvalid}]"
+    echo "stop" >&"$chan"
+}
 
 for f in $(find components -name '*.sh' | sort -n ) ; do
     (
@@ -88,10 +100,15 @@ for f in $(find components -name '*.sh' | sort -n ) ; do
             result=$cOK
         else
             result=$cError
+            if [[ "${shouldHalt}" == true ]] ; then echo "stop" >&"$chan" ; fi
         fi
     else
         result=$cSkip
     fi
     echo -e "${name}: [${result}]"
     )
+    # We can't just break or set a loop variable from within the subshell, so we use this 
+    # channel to signal the stop condition in the event of an error loading a script 
+    # (always halt) or when running it (can be configured to continue instead)
+    read -u $chan -t 0 && break
 done
