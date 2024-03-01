@@ -21,6 +21,7 @@ exec >&2
 
 type sed || exit
 type ed || exit
+type jq || exit
 
 )
 
