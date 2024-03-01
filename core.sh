@@ -62,6 +62,7 @@ export PWCGDEBUG=true
 
 mission="${1}"
 mission="$(cygpath -a "${mission}")"
+subtitles="${mission/.mission/.eng}"
 [[ -f "${mission?}" ]] || exit
 missionBase="$(basename "${mission}")"
 missionBase=${missionBase/.mission/}
@@ -90,8 +91,8 @@ for f in $(find components -name '*.sh' | sort -n ) ; do
     trap componentError EXIT
     set -e
     source "$f"
-    #
-    type apply 2>&1 > /dev/null || exit
+    
+    ( type apply > /dev/null 2>&1 ) || { echo "apply not found" ; exit ;}
     set +e
     trap - EXIT
     
