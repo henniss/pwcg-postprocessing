@@ -4,6 +4,7 @@ data="${root}/data/"
 set +e
 
 shouldApply() (
+    [[ "$NO_RESAVE" == true ]] && return 1
     set -e
     shopt -s nocasematch
     eval >&2
