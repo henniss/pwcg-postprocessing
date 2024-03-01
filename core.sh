@@ -22,6 +22,7 @@ exec >&2
 type sed || exit
 type ed || exit
 type jq || exit
+type iconv || exit
 
 )
 
@@ -70,7 +71,22 @@ campaign=$(echo ${missionBase} | cut -d ' ' -f 1)
 echo "${mission}"
 echo "${missionBase}"
 echo "${campaign}"
-[[ -d "${PWCGCampaigns}/${campaign}" ]] || exit
+[[ -d "${PWCGCampaigns}/${campaign}" ]] || campaign=""
+
+PLAYER_FLIGHT=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "stationed at" | sed "s/.*<br>\(.*\) stationed at \([^<>]*\)<br>.*/\1/")
+ESCORT_FLIGHT=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "Escorted" | sed "s/.*of \(.*\)/\1/")
+if cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep -q "Rendezvous with" ; then
+    IS_ESCORT=true
+else
+    IS_ESCORT=false
+fi
+HOMEBASE=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "stationed at" | sed "s/.*<br>\(.*\) stationed at \([^<>]*\)<br>.*/\2/")
+
+echo "is_escort: $IS_ESCORT"
+echo "PLAYER_FLIGHT: $PLAYER_FLIGHT"
+echo "ESCORT_FLIGHT: $ESCORT_FLIGHT"
+echo "HOMEBASE: $HOMEBASE"
+
 
 # Normally I'd just do this, but I get write errors when writing to this fd in cygwin:
 # exec {chan}<> <(:)
