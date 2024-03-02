@@ -100,6 +100,17 @@ echo "PLAYER_FLIGHT: $PLAYER_FLIGHT"
 echo "ESCORT_FLIGHT: $ESCORT_FLIGHT"
 echo "HOMEBASE: $HOMEBASE"
 
+set -e
+envf="${PWCGCampaigns}/${campaign}/env.sh"
+if [[ -f "$envf" ]] ; then
+    source "$envf"
+else
+    echo "using default env"
+    source ./default_env.sh
+fi
+set +e
+
+echo "MAP: $MAP"
 
 # Normally I'd just do this, but I get write errors when writing to this fd in cygwin:
 # exec {chan}<> <(:)

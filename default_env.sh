@@ -1,0 +1,1 @@
+MAP=$(grep "GuiMap" "$mission" -m 1 | sed 's/.*"\([[:alpha:]]*\).*";/\1/')

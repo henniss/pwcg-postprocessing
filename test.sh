@@ -1,6 +1,7 @@
 #!/bin/bash
 
 TEMP=$(mktemp -d)
+[[ -n "$TEMP" ]] || { echo "no temp dir"; exit ; }
 
 script_root="$(cygpath -a "$0")"
 script_root="$(dirname "$script_root")"
@@ -16,3 +17,7 @@ for m in "$TEMP"/*.mission; do
     echo "-------------"
     echo ""
 done
+
+if ! [[ "$KEEP_TEST" == true ]] ; then
+    rm -r "$TEMP"
+fi
