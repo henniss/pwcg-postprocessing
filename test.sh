@@ -1,5 +1,8 @@
 #!/bin/bash
 
+shopt -s nocaseglob
+shopt -s nocasematch
+
 TEMP=$(mktemp -d)
 [[ -n "$TEMP" ]] || { echo "no temp dir"; exit ; }
 
@@ -17,7 +20,7 @@ for m in "$TEMP"/*.mission; do
     echo ""
     echo "-------------"
     echo ""
-    i+=1
+    ((i+=1))
     if (( i >= $MU_TEST_MAX )) ; then
         break
     fi
