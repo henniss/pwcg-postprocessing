@@ -50,7 +50,7 @@ cSkip="${Yellow}SKIP${Color_Off}"
 cError="${Red}ERROR${Color_Off}"
 cInvalid="${Red}INVALID${Color_Off}"
 
-ed="ed -s -q "
+ed="ed "
 
 for d in root PWCGInput PWCGCampaigns ; do 
     if ! [[ -d "${!d}" ]] ; then 
@@ -95,6 +95,10 @@ else
 fi
 HOMEBASE=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "stationed at" | sed "s/.*<br>\(.*\) stationed at \([^<>]*\)<br>.*/\2/")
 
+# TODO: 
+# squadron code
+# side
+
 echo "is_escort: $IS_ESCORT"
 echo "PLAYER_FLIGHT: $PLAYER_FLIGHT"
 echo "ESCORT_FLIGHT: $ESCORT_FLIGHT"
@@ -136,7 +140,6 @@ for f in $(find components -name '*.sh' | sort -n ) ; do
     set +e
     trap - EXIT
     
-    name="${name:-$f}"
     if shouldApply ; then
         if apply ; then
             result=$cOK
@@ -147,7 +150,7 @@ for f in $(find components -name '*.sh' | sort -n ) ; do
     else
         result=$cSkip
     fi
-    echo -e "${name}: [${result}]"
+    echo -e "${f}: [${result}]"
     )
     # We can't just break or set a loop variable from within the subshell, so we use this 
     # channel to signal the stop condition in the event of an error loading a script 

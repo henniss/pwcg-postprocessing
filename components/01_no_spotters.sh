@@ -1,5 +1,3 @@
-#! /bin/bash
-
 shouldApply () {
     return 0
 }
