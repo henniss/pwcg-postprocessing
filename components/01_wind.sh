@@ -1,10 +1,17 @@
-HEADING=60
-AIRFIELD="HOLMSLEY SOUTH"
+
+# This script is non-essential and failure shouldn't break anything.
+shouldHalt=false
+
 
 apply () {
     set -e
     
-    echo "Adjusting wind heading for $AIRFIELD"
+    AL="${PWCGInput}/${MAP}/AirfieldLocations.json"
+    [[ -f "$AL" ]] || { echo "can't find '$AL'"; return 1 ; }
+    
+    HEADING=$(cat "$AL" | jq ".locations | map(select(.name == \"${HOMEBASE?}\")) | first.orientation.yOri")
+    HEADING=$(printf "%.0f\n" $HEADING)
+    echo "Adjusting wind heading for $HOMEBASE"
     echo "Take-Off Heading $HEADING"
 
     if [[ $(( $RANDOM % 100 )) -lt 70 ]]; then
