@@ -14,6 +14,9 @@ PWCGInput="${root}/PWCGBoS/BoSData/Input"
 PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
 sds="${root}/data/Multiplayer/il2dserverCoopProxy.sds"
 
+log="core.log"
+echo "" > "$log"
+
 (
 exec >&2
 # Check that we have common dependencies. If these are installed but can't be found you may need to add your cygwin bin directory to your path.
@@ -141,7 +144,7 @@ for f in $(find components -name '*.sh' | sort -n ) ; do
     trap - EXIT
     
     if shouldApply ; then
-        if apply ; then
+        if ( apply ) ; then
             result=$cOK
         else
             result=$cError
