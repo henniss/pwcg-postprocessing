@@ -1,11 +1,15 @@
-apply () {
-    mission_dir="$(dirname "${mission}")"
-    base="${root}/data/Multiplayer/"
-    rel="$(realpath --relative-to="${base}" "${mission}")"
-    
+base="${root}/data/Multiplayer/"
+
+shouldApply () {
     if (( 0 == $(find "$base" -wholename "$mission" | wc -l) )) ; then 
         return 1
     fi
+}
+
+apply () {
+    mission_dir="$(dirname "${mission}")"
+    rel="$(realpath --relative-to="${base}" "${mission}")"
+    
 
     goal="$(cygpath -w "${rel%.*}")"
     goal="$(echo "$goal" | sed -e 's|\\|\\\\|')"
