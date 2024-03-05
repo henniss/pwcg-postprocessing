@@ -2,6 +2,7 @@
 RADIUS=6000
 
 shouldApply () {
+return 1
 
 [[ -f "${mission?}" ]] || return 1
 [[ -f "${subtitles?}" ]] || return 1

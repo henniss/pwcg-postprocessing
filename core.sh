@@ -9,7 +9,7 @@ trap finish EXIT
 ###########################################
 ### MODIFY THESE VARIABLES FOR YOUR INSTALL
 ###########################################
-root="/e/SteamLibrary/steamapps/common/IL-2 Sturmovik Battle of Stalingrad"
+root="/cygdrive/e/SteamLibrary/steamapps/common/IL-2 Sturmovik Battle of Stalingrad"
 PWCGInput="${root}/PWCGBoS/BoSData/Input"
 PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
 sds="${root}/data/Multiplayer/il2dserverCoopProxy.sds"
@@ -117,7 +117,7 @@ else
 fi
 set +e
 
-echo "MAP: $MAP"
+printf "MAP: %q\n" "$MAP"
 
 # Normally I'd just do this, but I get write errors when writing to this fd in cygwin:
 # exec {chan}<> <(:)

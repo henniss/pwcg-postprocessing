@@ -8,3 +8,8 @@ Usage:
 * Set "Build Binary Mission File" to 0 in PWCG global configs.
 * Generate a new mission.
 * Drag and drop the generated .mission file onto core.sh
+
+File associations:
+In an admin cmd instance:
+assoc .sh=UNIXShell.Script
+ftype UNIXShell.Script="C:\cygwin64\bin\mintty.exe" "%1" %*
