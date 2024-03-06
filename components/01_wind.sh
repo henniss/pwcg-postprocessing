@@ -7,9 +7,6 @@ apply () {
     set -e
     
     AL="${PWCGInput}/${MAP}/AirfieldLocations.json"
-    echo "${PWCGInput}"
-    echo "${MAP}"
-    AL=$(echo "${AL}" | tr -d '\n\r')
     [[ -f "$AL" ]] || { echo "can't find '$AL'"; return 1 ; }
     
     HEADING=$(cat "$AL" | jq ".locations | map(select(.name == \"${HOMEBASE?}\")) | first.orientation.yOri")
