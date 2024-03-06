@@ -9,11 +9,12 @@ shouldHalt=false
 PCM="${PWCGCampaigns}/${campaign}/pilot-code-map.csv"
 SP="${PWCGCampaigns}/${campaign}/Personnel/${squadcode}.json"
 
-tempfile="tac_code_scratch.txt"
+tempfile=$(mktemp)
+tempscript=$(mktemp)
 
 shouldApply () {
 # todo squadcode
-for v in campaign ; do 
+for v in campaign tac_code_pattern tac_code_color; do 
     [[ -n "${!v}" ]] || { echo "$v unset" ; return 1 ; }
 done
 [[ -f "$PCM" ]] || { echo "can't find '$PCM'"; return 1 ; }
@@ -26,63 +27,64 @@ set -e
 sed -i -e '$a\' "$PCM"
 
 rm -f "$tempfile"
+rm -f "$tempscript"
 
 # enumerate pilots.
-edscript="/Flight $unit/
+
+$ed "$mission" > /dev/null <<EOF
+/Flight ${PLAYER_FLIGHT}/
 ka
-/Name = \"Flight/
+/Name = "Flight/
 kb
-'a,'bg/LuaScripts.WorldObjects.Planes/kc\\
+'a,'bg/LuaScripts.WorldObjects.Planes/n\\
+?{?\\
+kc\\
 /}/\\
 kd\\
 'c\\
 /Name =/\\
-.W $tempfile\\
-
+.W $tempfile
 
 q
-"
+EOF
 
-echo -e "$edscript" | $ed "$mission" > /dev/null
+names="$(cat "$tempfile" | cut -d '"' -f 2)"
 
-names="$(sed -nE 's/\s*Name\s*=\s*"Flt O\s(.*)";/\1/p' "$tempfile")"
+declare -A pcm_codes
+while IFS=, read a b c
+do 
+    pcm_codes["$a"]="$c"
+done < "$PCM"
 
 while read -r name ; do
-code=$(echo "$code" | tr -d '\n\r')
-if ! grep -q "$name" "$PCM"; then
-    echo "Pilot not configured: $name." 
-    error=1
-fi
-done <<< "$names"
-
-if [[ -n "$error" ]]; then
-echo "Exiting"
-read -s -n 1
-sleep 1
-exit 1
-fi
-
-
-while IFS=, read name model code; do
-if ! grep -q "$name" "$tempfile"; then
-    continue
-fi
-code=$(echo "$code" | tr -d '\n\r')
-fullcode="$(printf "$tac_code_pattern" "$code" "$code")"
-echo "$name: $fullcode"
-edscript="/Name = \".*$name\";/
+    for key in "${!pcm_codes[@]}"; do 
+        if [[ "$name" =~ .*$key ]]; then
+            code="${pcm_codes[$key]}"
+            fullcode="$(printf "$tac_code_pattern" "$code" "$code")"
+            printf "%q: %q\n"  "$name" "$fullcode"
+            cat >> "$tempscript" <<EOF
+/Name = ".*$name";/
 ?Plane?
 ka
 n
 /}/
 kb
 n
-'a,'bg/TCode \=/s/\".*\";/\"$fullcode\";/
-'a,'bg/TCodeColor/s/\"111\"/\"1111\"/
+'a,'bg/TCode \=/s/".*";/"$fullcode";/
+'a,'bg/TCodeColor/s/".*";/"$tac_code_color";/
+EOF
+            continue 2
+        fi
+    done
+    echo "pilot not configured: $name"
+    return 1
+done <<< "$names"
+
+cat >> "$tempscript" <<EOF
 w
 q
-"
-echo "$edscript" | $ed "$mission" > /dev/null
-done <"$PCM"
+EOF
+echo -e "executing: \n$tempscript"
+cat "$tempscript" | $ed "$mission" > /dev/null
 }
 
