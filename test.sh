@@ -14,7 +14,7 @@ cp sample-missions/* "$TEMP"
 chmod a+w "$TEMP"/*
 
 i=0
-for m in "$TEMP"/*.mission; do 
+for m in "$TEMP/"*.mission; do 
     echo "$m"
     ./core.sh "$m"
     echo ""

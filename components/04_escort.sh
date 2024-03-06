@@ -2,7 +2,6 @@
 RADIUS=6000
 
 shouldApply () {
-return 1
 
 [[ -f "${mission?}" ]] || return 1
 [[ -f "${subtitles?}" ]] || return 1
@@ -14,6 +13,7 @@ fi
 }
 
 apply() {
+set -e
 
 tempfile="scratch/escort.txt"
 echo "" > $tempfile
@@ -39,12 +39,12 @@ ka
 .W $tempfile
 EOF
 
-PID=$(sed -n -re '1s/.*LinkTrId.*=\s*([0-9]*);/\1/p' "$tempfile")
-FXPOS=$(sed -n -re '2s/.*XPos.*=\s*([0-9.]*);/\1/p' "$tempfile")
-FZPOS=$(sed -n -re '3s/.*ZPos.*=\s*([0-9.]*);/\1/p' "$tempfile")
-XPOS=$(sed -n -re '4s/.*XPos.*=\s*([0-9.]*);/\1/p' "$tempfile")
-ZPOS=$(sed -n -re '5s/.*ZPos.*=\s*([0-9.]*);/\1/p' "$tempfile")
-RDV=$(sed -n -re '6s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile")
+PID=$(sed -n -re '1s/.*LinkTrId.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
+FXPOS=$(sed -n -re '2s/.*XPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
+FZPOS=$(sed -n -re '3s/.*ZPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
+XPOS=$(sed -n -re '4s/.*XPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
+ZPOS=$(sed -n -re '5s/.*ZPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
+RDV=$(sed -n -re '6s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
 
 echo "PID: $PID"
 echo "FXPOS: $FXPOS"
@@ -54,7 +54,8 @@ echo "ZPOS: $ZPOS"
 echo "RDV: $RDV"
 
 # Crude, but do this separatly to avoid escape characters.
-ESCORT_START=$(grep -F "Flight $ESCORT_FLIGHT" "${mission}" -n  | head -n 1 | cut -d : -f 1)
+grep -F "Flight $ESCORT_FLIGHT" "${mission}" -n
+ESCORT_START=$(grep -F "Flight $ESCORT_FLIGHT" "${mission}" -n  | tr -d '\r' | head -n 1 | cut -d : -f 1)
 echo "escorts start at: $ESCORT_START"
 
 $ed "$mission" <<EOF
@@ -65,7 +66,7 @@ ka
 .W $tempfile
 EOF
 
-ECFCT_ID=$(sed -n -re '7s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile")
+ECFCT_ID=$(sed -n -re '7s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
 echo "ECFCT_ID: $ECFCT_ID"
 
 escort_acquire="\$
@@ -378,9 +379,10 @@ fi
 
 echo -n -e "9997:\r\n9998:Escort RTB\r\n9999:Rendezvous Met\r\n" | iconv -f ASCII -t "UTF-16LE" >> "$subtitles"
 
-
+echo "update rendezvous"
+printf "%q\n" "${RDV}"
 # Update rendezvous radius too.
-$ed "$mission" <<EOF
+$ed "$mission" > /dev/null <<EOF
 /Index.*=.*$RDV;/
 ?MCU_Waypoint?
 ka
@@ -388,7 +390,6 @@ ka
 kb
 'a,'bg/Area/
 s/Area =.*;/Area = $RADIUS;/
-'a,'bp
 w
 q
 EOF

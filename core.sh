@@ -89,14 +89,14 @@ echo "mission: ${mission}"
 echo "missionBase: ${missionBase}"
 echo "campaign: ${campaign}"
 
-PLAYER_FLIGHT=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "stationed at" | sed "s/.*<br>\(.*\) stationed at \([^<>]*\)<br>.*/\1/")
-ESCORT_FLIGHT=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "Escorted" | sed "s/.*of \(.*\)/\1/")
+PLAYER_FLIGHT=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "stationed at" | sed "s/.*<br>\(.*\) stationed at \([^<>]*\)<br>.*/\1/" | tr -d '\r')
+ESCORT_FLIGHT=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "Escorted" | sed "s/.*of \(.*\)/\1/"  | tr -d '\r')
 if cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep -q "Rendezvous with" ; then
     IS_ESCORT=true
 else
     IS_ESCORT=false
 fi
-HOMEBASE=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "stationed at" | sed "s/.*<br>\(.*\) stationed at \([^<>]*\)<br>.*/\2/")
+HOMEBASE=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "stationed at" | sed "s/.*<br>\(.*\) stationed at \([^<>]*\)<br>.*/\2/"  | tr -d '\r')
 
 # TODO: 
 # squadron code
@@ -131,7 +131,7 @@ function componentError {
     echo -e "${f}: [${cInvalid}]"
     echo "stop" >&"$chan"
 }
-for f in $(find components -name '*artillery.sh' | sort -n ) ; do
+for f in $(find components -name '*escort.sh' | sort -n ) ; do
 #for f in $(find components -name '*.sh' | sort -n ) ; do
     (
     result=$cSkip
