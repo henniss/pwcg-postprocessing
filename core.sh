@@ -108,12 +108,12 @@ echo "ESCORT_FLIGHT: $ESCORT_FLIGHT"
 echo "HOMEBASE: $HOMEBASE"
 
 set -e
+source ./default_env.sh
 envf="${PWCGCampaigns}/${campaign}/env.sh"
 if [[ -f "$envf" ]] ; then
     source "$envf"
 else
     echo "using default env"
-    source ./default_env.sh
 fi
 set +e
 
@@ -131,8 +131,8 @@ function componentError {
     echo -e "${f}: [${cInvalid}]"
     echo "stop" >&"$chan"
 }
-
-for f in $(find components -name '*.sh' | sort -n ) ; do
+for f in $(find components -name '*artillery.sh' | sort -n ) ; do
+#for f in $(find components -name '*.sh' | sort -n ) ; do
     (
     result=$cSkip
     trap componentError EXIT
