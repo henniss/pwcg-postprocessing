@@ -6,10 +6,7 @@ shouldApply () {
 [[ -f "${mission?}" ]] || return 1
 [[ -f "${subtitles?}" ]] || return 1
 
-if ! { cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep -q "Escorted" ; } ; then
-    echo "Not an escort flight."
-    return 1
-fi
+[[ "$IS_MISSION_WITH_ESCORT" == true ]] || { echo "not an escort mission" ; return 1 ; }
 }
 
 apply() {

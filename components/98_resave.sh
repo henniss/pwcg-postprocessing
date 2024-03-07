@@ -9,7 +9,6 @@ shouldApply() (
     shopt -s nocasematch
     eval >&2
     [[ "${mission}" =~ .*\.mission$ ]] || { echo "Not a Mission" ; exit 1; }
-    [[ "${PWCGDEBUG}" == true ]] || exit 1
 )
 
 apply () {

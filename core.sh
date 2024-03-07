@@ -14,27 +14,24 @@ PWCGInput="${root}/PWCGBoS/BoSData/Input"
 PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
 sds="${root}/data/Multiplayer/il2dserverCoopProxy.sds"
 
-log="core.log"
-echo "" > "$log"
-
 (
 exec >&2
 # Check that we have common dependencies. If these are installed but can't be found you may need to add your cygwin bin directory to your path.
-type sed || exit
-type ed || exit
-type jq || exit
-type iconv || exit
+for prog in sed ed jq iconv ; do 
+type $prog || { echo "$prog not found" ; exit 1 ; }
+done
 )
 
 # Setup
 shopt -s nocaseglob
 shopt -s nocasematch
 
-set -e
 script_root="$(cygpath -a "$0")"
 script_root="$(dirname "$script_root")"
-[[ -d "$script_root" ]] && cd "$script_root" || exit
-set +e
+[[ -d "$script_root" ]] && cd "$script_root" || { echo "unable to cd to script root"; exit ; }
+
+log="core.log"
+echo "" > "$log"
 
 # Colors
 Color_Off='\033[0m'       # Text Reset
@@ -89,6 +86,10 @@ echo "mission: ${mission}"
 echo "missionBase: ${missionBase}"
 echo "campaign: ${campaign}"
 
+if { cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep -q "Escorted" ; } ; then
+    IS_MISSION_WITH_ESCORT=true
+fi
+
 PLAYER_FLIGHT=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "stationed at" | sed "s/.*<br>\(.*\) stationed at \([^<>]*\)<br>.*/\1/" | tr -d '\r')
 ESCORT_FLIGHT=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "Escorted" | sed "s/.*of \(.*\)/\1/"  | tr -d '\r')
 if cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep -q "Rendezvous with" ; then
@@ -106,6 +107,7 @@ echo "is_escort: $IS_ESCORT"
 echo "PLAYER_FLIGHT: $PLAYER_FLIGHT"
 echo "ESCORT_FLIGHT: $ESCORT_FLIGHT"
 echo "HOMEBASE: $HOMEBASE"
+echo "IS_MISSION_WITH_ESCORT: $IS_MISSION_WITH_ESCORT"
 
 set -e
 source ./default_env.sh
@@ -131,8 +133,8 @@ function componentError {
     echo -e "${f}: [${cInvalid}]"
     echo "stop" >&"$chan"
 }
-for f in $(find components -name '*escort.sh' | sort -n ) ; do
-#for f in $(find components -name '*.sh' | sort -n ) ; do
+
+for f in $(find components -name '*.sh' | sort -n ) ; do
     (
     result=$cSkip
     trap componentError EXIT
