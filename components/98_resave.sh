@@ -12,5 +12,6 @@ shouldApply() (
 )
 
 apply () {
+  unix2dos -f "${mission?}"
   "${resaver?}" -d "$(cygpath -a -w "${data?}")" -f "$(cygpath -a -w "${mission?}")"
 }
