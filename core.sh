@@ -28,6 +28,7 @@ shopt -s nocasematch
 
 script_root="$(cygpath -a "$0")"
 script_root="$(dirname "$script_root")"
+data="$(realpath ./data)"
 [[ -d "$script_root" ]] && cd "$script_root" || { echo "unable to cd to script root"; exit ; }
 
 log="core.log"
