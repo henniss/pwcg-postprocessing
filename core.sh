@@ -12,7 +12,7 @@ trap finish EXIT
 root="/cygdrive/e/SteamLibrary/steamapps/common/IL-2 Sturmovik Battle of Stalingrad"
 PWCGInput="${root}/PWCGBoS/BoSData/Input"
 PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
-sds="${root}/data/Multiplayer/il2dserverCoopProxy.sds"
+sds="${root}/data/Multiplayer/il2dserverCoop.sds"
 
 (
 exec >&2
