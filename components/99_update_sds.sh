@@ -17,13 +17,15 @@ apply () {
 
     sed -i -re "s/.*file =.*/    file = \"$goal\"/" "$sds"
 
-    IP=$(ipconfig | grep "IPv4 Address" | cut -d ':' -f 2 | tr -d ' ' | grep -v "192\.168\..*" | head -n 1)
+    IP=$(ipconfig | grep "IPv4 Address" | cut -d ':' -f 2 | tr -d ' \r' | grep -v "192\.168\..*" | head -n 1)
     if [[ -z "$IP" ]]; then 
-        IP=$(ipconfig | grep "IPv4 Address" | cut -d ':' -f 2 | tr -d ' ' | grep "192\.168\..*" | head -n 1)
+        IP=$(ipconfig | grep "IPv4 Address" | cut -d ':' -f 2 | tr -d ' \r' | grep "192\.168\..*" | head -n 1)
     fi
     
     echo "IP: $IP"
     sed -i -re "s/ServerIP.*/ServerIP = \"$IP\"/" "$sds"
+    
+    unix2dos "$sds"
     
     mkdir -p "${mission_dir}/trash"
     mv "$mission" "${mission_dir}/trash"

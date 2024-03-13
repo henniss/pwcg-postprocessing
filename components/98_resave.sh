@@ -12,6 +12,7 @@ shouldApply() (
 )
 
 apply () {
+  cd "${root}/bin/resaver" || exit
   unix2dos -f "${mission?}"
   "${resaver?}" -d "$(cygpath -a -w "${data?}")" -f "$(cygpath -a -w "${mission?}")"
 }
