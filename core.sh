@@ -1,4 +1,5 @@
 #! /bin/bash 
+set -u
 
 function finish {
     # Useful if run via drag-drop to prevent terminal closing.
@@ -30,6 +31,7 @@ script_root="$(cygpath -a "$0")"
 script_root="$(dirname "$script_root")"
 data="$(realpath ./data)"
 [[ -d "$script_root" ]] && cd "$script_root" || { echo "unable to cd to script root"; exit ; }
+
 
 log="core.log"
 echo "" > "$log"
@@ -76,19 +78,25 @@ shouldApply () {
 shouldHalt=true
 
 mission="${1}"
-mission="$(cygpath -a "${mission}")"
+mission="$(cygpath -a "${mission?}")"
 subtitles="${mission/.mission/.eng}"
 [[ -f "${mission?}" ]] || exit
-missionBase="$(basename "${mission}")"
+missionBase="$(basename "${mission?}")"
 missionBase=${missionBase/.mission/}
 campaign=$(echo ${missionBase} | cut -d ' ' -f 1)
-[[ -d "${PWCGCampaigns}/${campaign}" ]] || campaign=""
+[[ -d "${PWCGCampaigns}/${campaign?}" ]] || campaign=""
 echo "mission: ${mission}"
 echo "missionBase: ${missionBase}"
 echo "campaign: ${campaign}"
 
+mdir="$(dirname "${mission?}")"
+backups="${mdir?}/backups"
+trash="${mdir?}/trash"
+
 if { cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep -q "Escorted" ; } ; then
     IS_MISSION_WITH_ESCORT=true
+else
+    IS_MISSION_WITH_ESCORT=false
 fi
 
 PLAYER_FLIGHT=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "stationed at" | sed "s/.*<br>\(.*\) stationed at \([^<>]*\)<br>.*/\1/" | tr -d '\r')
@@ -130,10 +138,30 @@ mkfifo $PIPE
 exec {chan}<>$PIPE
 
 
-function componentError {
+componentError () {
     echo -e "${f}: [${cInvalid}]"
     echo "stop" >&"$chan"
+    
+    restoreBackup "${mission}"
 }
+
+makeBackup () (
+    set -e
+    mkdir -p "${backups}"
+    cp -f "${mdir?}/${missionBase?}".* "${backups?}"
+)
+
+restoreBackup () (
+    set -e
+    
+    echo "restoring..."
+    
+    mkdir -p "${trash}"
+    mv "${mdir?}/${missionBase?}".* "${trash}"
+    cp -n -f "${backups?}/${missionBase?}".* "${mdir?}"
+)
+
+makeBackup "${mission}"
 
 for f in $(find components -name '*.sh' | sort -n ) ; do
     (
@@ -151,7 +179,10 @@ for f in $(find components -name '*.sh' | sort -n ) ; do
             result=$cOK
         else
             result=$cError
-            if [[ "${shouldHalt}" == true ]] ; then echo "stop" >&"$chan" ; fi
+            if [[ "${shouldHalt}" == true ]] ; then
+                restoreBackup "${mission}"
+                echo "stop" >&"$chan" 
+            fi
         fi
     else
         result=$cSkip

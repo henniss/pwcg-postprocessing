@@ -7,16 +7,18 @@
 shouldHalt=false
 
 PCM="${PWCGCampaigns}/${campaign}/pilot-code-map.csv"
-SP="${PWCGCampaigns}/${campaign}/Personnel/${squadcode}.json"
+#SP="${PWCGCampaigns}/${campaign}/Personnel/${squadcode}.json"
 
 tempfile=$(mktemp)
 tempscript=$(mktemp)
 
 shouldApply () {
 # todo squadcode
+set +u
 for v in campaign tac_code_pattern tac_code_color; do 
     [[ -n "${!v}" ]] || { echo "$v unset" ; return 1 ; }
 done
+set -u
 [[ -f "$PCM" ]] || { echo "can't find '$PCM'"; return 1 ; }
 }
 

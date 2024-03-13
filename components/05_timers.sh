@@ -26,7 +26,7 @@ N=${TIMERS_N?}
 tempfile="$(mktemp)"
 
 exempt="$PLAYER_FLIGHT
-$ESCORT_NAME"
+$ESCORT_FLIGHT"
 
 grep "Name = \"Flight.*\";" "${mission}" | tr -d '\r' | sort > "$tempfile"
 sed -i "s/ *Name = \"Flight \(.*\)\";/\1/" "$tempfile"
