@@ -10,10 +10,13 @@ trap finish EXIT
 ###########################################
 ### MODIFY THESE VARIABLES FOR YOUR INSTALL
 ###########################################
-root="/cygdrive/e/SteamLibrary/steamapps/common/IL-2 Sturmovik Battle of Stalingrad"
+root="E:\SteamLibrary\steamapps\common\IL-2 Sturmovik Battle of Stalingrad"
+sds="E:\SteamLibrary\steamapps\common\IL-2 Sturmovik Battle of Stalingrad\data\Multiplayer\il2dserverCoop.sds"
+
+root="$(cygpath -a "${root}")"
+sds="$(cygpath -a "${sds}")"
 PWCGInput="${root}/PWCGBoS/BoSData/Input"
 PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
-sds="${root}/data/Multiplayer/il2dserverCoop.sds"
 
 (
 exec >&2
