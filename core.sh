@@ -36,8 +36,6 @@ data="$(realpath ./data)"
 [[ -d "$script_root" ]] && cd "$script_root" || { echo "unable to cd to script root"; exit ; }
 
 
-log="core.log"
-echo "" > "$log"
 
 # Colors
 Color_Off='\033[0m'       # Text Reset
