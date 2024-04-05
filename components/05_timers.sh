@@ -72,7 +72,7 @@ w
 q
 "
 
-echo "$edscript" | $ed "$mission"
+echo "$edscript" | $ed "$mission" >/dev/null
 
 # Now the hard part... we need to:
 # Find the CZ Activate timer for the first waypoint. Record its outputs, and then replace them with []
@@ -107,7 +107,7 @@ w
 q
 "
 
-echo "${edscript}" | $ed "${mission}"
+echo "${edscript}" | $ed "${mission}" >/dev/null
 
 CZ_ACTIVATE_TARGET=$(sed -n -re '1s/.*Index\s*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
 RECEIVED_ACTIVATION_TARGETS=$(sed -n -re '2s/.*Targets\s*=\s*\[([0-9,]*)\];/\1/p' "$tempfile" | tr -d '\r')
@@ -116,12 +116,12 @@ CZ_OBJECTS=$(sed -n -re '4s/.*Objects\s*=\s*\[([0-9,]*)\];/\1/p' "$tempfile" | t
 CZ_XPOS=$(sed -n -re '5s/.*XPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
 CZ_ZPOS=$(sed -n -re '6s/.*ZPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
 
-echo "CZ_ACTIVATE_TARGET: ${CZ_ACTIVATE_TARGET?}"
-echo "RECEIVED_ACTIVATION_TARGETS: ${RECEIVED_ACTIVATION_TARGETS?}"
-echo "CZ_TARGET: $CZ_TARGET"
-echo "CZ_OBJECTS: $CZ_OBJECTS"
-echo "XPOS: $CZ_XPOS"
-echo "ZPOS: $CZ_ZPOS"
+echo -e "\tCZ_ACTIVATE_TARGET: ${CZ_ACTIVATE_TARGET?}"
+echo -e "\tRECEIVED_ACTIVATION_TARGETS: ${RECEIVED_ACTIVATION_TARGETS?}"
+echo -e "\tCZ_TARGET: $CZ_TARGET"
+echo -e "\tCZ_OBJECTS: $CZ_OBJECTS"
+echo -e "\tXPOS: $CZ_XPOS"
+echo -e "\tZPOS: $CZ_ZPOS"
 
 # Change: New activate object.
 # Deactivate also needs to hit CZ, DZ.
@@ -236,7 +236,7 @@ w
 q
 "
 
-echo "$edscript" | $ed "${mission}"
+echo "$edscript" | $ed "${mission}" >/dev/null
 
 ((index += 6)) # number of items in CZ_EXTRA
 (( i += 1 ))

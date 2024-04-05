@@ -15,7 +15,7 @@ set -e
 tempfile="scratch/escort.txt"
 echo "" > $tempfile
 
-$ed "$mission" <<EOF
+$ed "$mission" >/dev/null <<EOF
 /Name = "Flight/
 ka
 /Plane/
@@ -55,7 +55,7 @@ grep -F "Flight $ESCORT_FLIGHT" "${mission}" -n
 ESCORT_START=$(grep -F "Flight $ESCORT_FLIGHT" "${mission}" -n  | tr -d '\r' | head -n 1 | cut -d : -f 1)
 echo "escorts start at: $ESCORT_START"
 
-$ed "$mission" <<EOF
+$ed "$mission" >/dev/null <<EOF
 $ESCORT_START
 ka
 /Name = "Escort Cover Force Complete Tim.*"/
@@ -369,9 +369,9 @@ w
 q
 "
 
-echo "${escort_acquire?}" | $ed "$mission"
+echo "${escort_acquire?}" | $ed "$mission" >/dev/null
 if ! [[ "$IS_ESCORT" == true ]] ; then
-    echo "${escort_home?}" | $ed "$mission"
+    echo "${escort_home?}" | $ed "$mission" >/dev/null
 fi
 
 echo -n -e "9997:\r\n9998:Escort RTB\r\n9999:Rendezvous Met\r\n" | iconv -f ASCII -t "UTF-16LE" >> "$subtitles"
