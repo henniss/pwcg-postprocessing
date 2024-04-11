@@ -31,4 +31,24 @@ ka
 w
 q
 EOF
+
+# city_fire, city_firesmall, and villagesmoke all need to be manually turned.
+$ed "$mission" > /dev/null <<EOF
+,g/villagesmoke/?{?\\
+/YOri/\\
+s/.*/  YOri = ${new}.00;
+
+,g/city_fire/?{?\\
+/YOri/\\
+s/.*/  YOri = ${new}.00;
+
+,g/city_firesmall/?{?\\
+/YOri/\\
+s/.*/  YOri = ${new}.00;
+
+w
+q
+EOF
+
+
 }
