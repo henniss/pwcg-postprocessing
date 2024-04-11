@@ -62,7 +62,7 @@ while read -r name ; do
     for key in "${!pcm_codes[@]}"; do 
         if [[ "$name" =~ .*$key ]]; then
             code="${pcm_codes[$key]}"
-            fullcode="$(printf "$tac_code_pattern" "$code" "$code")"
+            fullcode="$(perl -e "printf q{$tac_code_pattern}, q{$code} ")"
             printf "%q: %q\n"  "$name" "$fullcode"
             cat >> "$tempscript" <<EOF
 /Name = ".*$name";/
@@ -79,7 +79,6 @@ EOF
         fi
     done
     echo "pilot not configured: $name"
-    return 1
 done <<< "$names"
 
 cat >> "$tempscript" <<EOF

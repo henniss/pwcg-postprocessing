@@ -4,7 +4,7 @@ They're all kind of crap; I threw these together quickly to solve problems as I 
 
 Installation: 
 
-* Install cygwin. Make sure to select the ed, jq, and libiconv packages. 
+* Install cygwin. Make sure to select the ed, jq, libiconv, and perl packages. 
 * Edit core.sh and make sure to point the relevant variables to appropriate filesystem paths.
 * Set "Build Binary Mission File" to 0 in PWCG global configs.
 * Generate a new mission.

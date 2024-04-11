@@ -20,7 +20,7 @@ PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
 
 {
 # Check that we have common dependencies. If these are installed but can't be found you may need to add your cygwin bin directory to your path.
-for prog in sed ed jq iconv ; do 
+for prog in sed ed jq iconv perl ; do 
 type $prog || { echo "$prog not found" ; exit 1 ; }
 done
 } >&2
