@@ -18,13 +18,12 @@ sds="$(cygpath -a "${sds}")"
 PWCGInput="${root}/PWCGBoS/BoSData/Input"
 PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
 
-(
-exec >&2
+{
 # Check that we have common dependencies. If these are installed but can't be found you may need to add your cygwin bin directory to your path.
 for prog in sed ed jq iconv ; do 
 type $prog || { echo "$prog not found" ; exit 1 ; }
 done
-)
+} >&2
 
 # Setup
 shopt -s nocaseglob
@@ -155,7 +154,7 @@ makeBackup () (
 restoreBackup () (
     set -e
     
-    [[ "true" == "$NO_RESTORE" ]] && return 0
+    [[ "true" == "${NO_RESTORE:-false}" ]] && return 0
     
     echo "restoring..."
     
