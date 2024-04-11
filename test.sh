@@ -5,6 +5,7 @@ shopt -s nocasematch
 
 TEMP=$(mktemp -d)
 [[ -n "$TEMP" ]] || { echo "no temp dir"; exit ; }
+cygstart "${TEMP}"
 
 script_root="$(cygpath -a "$0")"
 script_root="$(dirname "$script_root")"
@@ -12,6 +13,8 @@ script_root="$(dirname "$script_root")"
 
 cp sample-missions/* "$TEMP"
 chmod a+w "$TEMP"/*
+
+export NO_RESTORE=true
 
 i=0
 for m in "$TEMP/"*.mission; do 
@@ -21,7 +24,7 @@ for m in "$TEMP/"*.mission; do
     echo "-------------"
     echo ""
     ((i+=1))
-    if (( i >= $MU_TEST_MAX )) ; then
+    if (( i >= ${MU_TEST_MAX:-99})) ; then
         break
     fi
 done

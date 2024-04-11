@@ -155,6 +155,8 @@ makeBackup () (
 restoreBackup () (
     set -e
     
+    [[ "true" == "$NO_RESTORE" ]] && return 0
+    
     echo "restoring..."
     
     mkdir -p "${trash}"
