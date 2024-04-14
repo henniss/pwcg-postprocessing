@@ -9,6 +9,13 @@ apply () {
     AL="${PWCGInput}/${MAP}/AirfieldLocations.json"
     [[ -f "$AL" ]] || { echo "can't find '$AL'"; return 1 ; }
     
+    for var in HOMEBASE MAP; do
+      if [[ -z "${!var}" ]]; then
+        echo "${var} not set."
+        return 1
+      fi
+    done
+    
     HEADING=$(cat "$AL" | jq ".locations | map(select(.name == \"${HOMEBASE?}\")) | first.orientation.yOri")
     HEADING=$(printf "%.0f\n" $HEADING)
     echo "Adjusting wind heading for $HOMEBASE"
