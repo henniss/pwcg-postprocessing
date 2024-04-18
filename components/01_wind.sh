@@ -6,10 +6,10 @@ shouldHalt=false
 apply () {
     set -e
     
-    AL="${PWCGInput}/${MAP}/AirfieldLocations.json"
+    AL="${PWCGInput}/${PWCGMAP}/AirfieldLocations.json"
     [[ -f "$AL" ]] || { echo "can't find '$AL'"; return 1 ; }
     
-    for var in HOMEBASE MAP; do
+    for var in HOMEBASE PWCGMAP; do
       if [[ -z "${!var}" ]]; then
         echo "${var} not set."
         return 1

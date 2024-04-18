@@ -128,6 +128,11 @@ else
 fi
 set +e
 
+# normalize to lowercase
+MAP="${MAP,,}"
+# PWCG internal naming is inconsistent with gui map
+PWCGMAP="${MAP/rheinland/bodenplatte}" # sic
+
 printf "MAP: %q\n" "$MAP"
 
 # Normally I'd just do this, but I get write errors when writing to this fd in cygwin:
