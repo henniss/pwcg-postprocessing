@@ -294,7 +294,7 @@ MCU_Timer
   Index = $((index + 12));
   Name = \"20ms\";
   Desc = \"\";
-  Targets = [$((index + 5))];
+  Targets = [$((index + 5)), $((index + 14))];
   Objects = [];
   XPos = $XPos;
   YPos = 0;
@@ -331,9 +331,27 @@ MCU_CMD_Behaviour
   Country = 0;
   FloatParam = 0;
 }
+
+MCU_CMD_ForceComplete
+{
+  Index = $((index + 14));
+  Name = \"command Force Complete\";
+  Desc = \"\";
+  Targets = [];
+  Objects = [$eid];
+  XPos = 27191.474;
+  YPos = 107.383;
+  ZPos = 23533.581;
+  XOri = 0.00;
+  YOri = 0.00;
+  ZOri = 0.00;
+  Priority = 2;
+  EmergencyOrdnanceDrop = 0;
+}
+
 ." >> "$tempscript"
 
-((index += 13)) # number of items added.
+((index += 14)) # number of items added.
 
 done
 
