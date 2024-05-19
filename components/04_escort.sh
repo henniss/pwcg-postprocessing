@@ -1,5 +1,5 @@
 
-RADIUS=6000
+: "${RADIUS:=3000}"
 
 shouldApply () {
 
