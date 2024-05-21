@@ -12,8 +12,7 @@ shouldApply () {
 apply() {
 set -e
 
-tempfile="scratch/escort.txt"
-echo "" > $tempfile
+tempfile=$(mktemp)
 
 $ed "$mission" >/dev/null <<EOF
 /Name = "Flight/
