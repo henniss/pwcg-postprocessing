@@ -226,7 +226,7 @@ MCU_Timer
   Index = $((index + 8));
   Name = \"0\";
   Desc = \"\";
-  Targets = [$((index + 11)),$((index + 7))];
+  Targets = [$((index + 11)),$((index + 7)),$((index + 14))];
   Objects = [];
   XPos = $XPos;
   YPos = 0;
@@ -294,7 +294,7 @@ MCU_Timer
   Index = $((index + 12));
   Name = \"20ms\";
   Desc = \"\";
-  Targets = [$((index + 5)), $((index + 14))];
+  Targets = [$((index + 5))];
   Objects = [];
   XPos = $XPos;
   YPos = 0;
