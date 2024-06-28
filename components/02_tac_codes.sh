@@ -28,8 +28,6 @@ set -e
 
 sed -i -e '$a\' "$PCM"
 
-rm -f "$tempfile"
-rm -f "$tempscript"
 
 # enumerate pilots.
 
