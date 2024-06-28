@@ -7,6 +7,8 @@ function finish {
 }
 trap finish EXIT
 
+if ![[ -f ./config.sh ]] ; then
+    cat > ./config.sh <<EOF 
 ###########################################
 ### MODIFY THESE VARIABLES FOR YOUR INSTALL
 ###########################################
@@ -17,6 +19,9 @@ root="$(cygpath -a "${root}")"
 sds="$(cygpath -a "${sds}")"
 PWCGInput="${root}/PWCGBoS/BoSData/Input"
 PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
+EOF
+fi
+source ./config.sh
 
 {
 # Check that we have common dependencies. If these are installed but can't be found you may need to add your cygwin bin directory to your path.
