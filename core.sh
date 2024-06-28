@@ -1,4 +1,4 @@
-#! /bin/bash 
+#! /bin/bash
 set -u
 
 function finish {
@@ -8,7 +8,7 @@ function finish {
 trap finish EXIT
 
 if ![[ -f ./config.sh ]] ; then
-    cat > ./config.sh <<EOF 
+    cat > ./config.sh <<EOF
 ###########################################
 ### MODIFY THESE VARIABLES FOR YOUR INSTALL
 ###########################################
@@ -25,7 +25,7 @@ source ./config.sh
 
 {
 # Check that we have common dependencies. If these are installed but can't be found you may need to add your cygwin bin directory to your path.
-for prog in sed ed jq iconv perl ; do 
+for prog in sed ed jq iconv perl ; do
 type $prog || { echo "$prog not found" ; exit 1 ; }
 done
 } >&2
@@ -60,22 +60,22 @@ cInvalid="${Red}INVALID${Color_Off}"
 
 ed="ed "
 
-for d in root PWCGInput PWCGCampaigns ; do 
-    if ! [[ -d "${!d}" ]] ; then 
+for d in root PWCGInput PWCGCampaigns ; do
+    if ! [[ -d "${!d}" ]] ; then
         echo "not a directory: $d (${!d})"
         exit
     fi
 done
 
-for f in sds ; do 
-    if ! [[ -f "${!f}" ]] ; then 
+for f in sds ; do
+    if ! [[ -f "${!f}" ]] ; then
         echo "not a file: $f (${!f})"
         exit
     fi
 done
 
 
-# Apply scripts by default. 
+# Apply scripts by default.
 shouldApply () {
     return 0
 }
@@ -113,7 +113,7 @@ else
 fi
 HOMEBASE=$(cat "${subtitles}" | iconv -f "UTF-16LE" -t UTF-8 | grep "stationed at" | sed "s/.*<br>\(.*\) stationed at \([^<>]*\)<br>.*/\2/"  | tr -d '\r')
 
-# TODO: 
+# TODO:
 # squadron code
 # side
 
@@ -151,7 +151,7 @@ exec {chan}<>$PIPE
 componentError () {
     echo -e "${f}: [${cInvalid}]"
     echo "stop" >&"$chan"
-    
+
     restoreBackup "${mission}"
 }
 
@@ -163,11 +163,11 @@ makeBackup () (
 
 restoreBackup () (
     set -e
-    
+
     [[ "true" == "${NO_RESTORE:-false}" ]] && return 0
-    
+
     echo "restoring..."
-    
+
     mkdir -p "${trash}"
     mv "${mdir?}/${missionBase?}".* "${trash}"
     cp -n -f "${backups?}/${missionBase?}".* "${mdir?}"
@@ -181,11 +181,11 @@ for f in $(find components -name '*.sh' | sort -n ) ; do
     trap componentError EXIT
     set -e
     source "$f"
-    
+
     ( type apply > /dev/null 2>&1 ) || { echo "apply not found" ; exit ;}
     set +e
     trap - EXIT
-    
+
     if shouldApply ; then
         if ( apply ) ; then
             result=$cOK
@@ -193,7 +193,7 @@ for f in $(find components -name '*.sh' | sort -n ) ; do
             result=$cError
             if [[ "${shouldHalt}" == true ]] ; then
                 restoreBackup "${mission}"
-                echo "stop" >&"$chan" 
+                echo "stop" >&"$chan"
             fi
         fi
     else
@@ -201,8 +201,8 @@ for f in $(find components -name '*.sh' | sort -n ) ; do
     fi
     echo -e "${f}: [${result}]"
     )
-    # We can't just break or set a loop variable from within the subshell, so we use this 
-    # channel to signal the stop condition in the event of an error loading a script 
+    # We can't just break or set a loop variable from within the subshell, so we use this
+    # channel to signal the stop condition in the event of an error loading a script
     # (always halt) or when running it (can be configured to continue instead)
     read -u $chan -t 0 && break
 done
