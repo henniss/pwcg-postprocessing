@@ -226,7 +226,7 @@ MCU_Timer
   Index = $((index + 8));
   Name = \"0\";
   Desc = \"\";
-  Targets = [$((index + 11)),$((index + 7)),$((index + 14))];
+  Targets = [$((index + 15)),$((index + 14))];
   Objects = [];
   XPos = $XPos;
   YPos = 0;
@@ -339,9 +339,9 @@ MCU_CMD_ForceComplete
   Desc = \"\";
   Targets = [];
   Objects = [$eid];
-  XPos = 27191.474;
+  XPos = $XPos;
   YPos = 107.383;
-  ZPos = 23533.581;
+  ZPos = $ZPos;
   XOri = 0.00;
   YOri = 0.00;
   ZOri = 0.00;
@@ -349,9 +349,26 @@ MCU_CMD_ForceComplete
   EmergencyOrdnanceDrop = 0;
 }
 
+MCU_Timer
+{
+  Index = $((index + 15));
+  Name = \"120ms\";
+  Desc = \"\";
+  Targets = [$((index + 7)),$((index + 11))];
+  Objects = [];
+  XPos = $XPos;
+  YPos = 0;
+  ZPos = $ZPos;
+  XOri = 0.00;
+  YOri = 0.00;
+  ZOri = 0.00;
+  Time = 0.12;
+  Random = 100;
+}
+
 ." >> "$tempscript"
 
-((index += 14)) # number of items added.
+((index += 15)) # number of items added.
 
 done
 
