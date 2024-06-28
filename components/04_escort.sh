@@ -33,6 +33,10 @@ ka
 ?MCU_Waypoint
 /Index
 .W $tempfile
+'a
+/TakeOff
+/Index
+.W $tempfile
 EOF
 
 PID=$(sed -n -re '1s/.*LinkTrId.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
@@ -41,6 +45,7 @@ FZPOS=$(sed -n -re '3s/.*ZPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
 XPOS=$(sed -n -re '4s/.*XPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
 ZPOS=$(sed -n -re '5s/.*ZPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
 RDV=$(sed -n -re '6s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
+TOWID=$(sed -n re '7s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
 
 echo "PID: $PID"
 echo "FXPOS: $FXPOS"
@@ -48,6 +53,7 @@ echo "FZPOS: $FZPOS"
 echo "XPOS: $XPOS"
 echo "ZPOS: $ZPOS"
 echo "RDV: $RDV"
+echo "TOWID: $TOWID"
 
 # Crude, but do this separatly to avoid escape characters.
 grep -F "Flight $ESCORT_FLIGHT" "${mission}" -n
@@ -85,39 +91,6 @@ MCU_CheckZone
   Zone = $RADIUS;
   Cylinder = 1;
   Closer = 1;
-}
-
-MCU_TR_MissionBegin
-{
-  Index = 9790002;
-  Name = \"\";
-  Desc = \"\";
-  Targets = [9790003];
-  Objects = [];
-  XPos = 21304.740;
-  YPos = 47.148;
-  ZPos = 107271.387;
-  XOri = 0.00;
-  YOri = 0.00;
-  ZOri = 0.00;
-  Enabled = 1;
-}
-
-MCU_Timer
-{
-  Index = 9790003;
-  Name = \"3s\";
-  Desc = \"\";
-  Targets = [9790001];
-  Objects = [];
-  XPos = 21306.042;
-  YPos = 46.765;
-  ZPos = 107271.101;
-  XOri = 0.00;
-  YOri = 0.00;
-  ZOri = 0.00;
-  Time = 3;
-  Random = 100;
 }
 
 MCU_Deactivate
@@ -197,7 +170,45 @@ MCU_TR_Subtitle
   
   Coalitions = [0, 1, 2, 3, 4];
 }
+
+MCU_Timer
+{
+  Index = 9790008;
+  Name = \"Takeoff ReportTarget\";
+  Desc = \"\";
+  Targets = [9790009, $TOWID];
+  Objects = [];
+  XPos = 21312.805;
+  YPos = 47.384;
+  ZPos = 107250.681;
+  XOri = 0.00;
+  YOri = 0.00;
+  ZOri = 0.00;
+  Time = 0;
+  Random = 100;
+}
+
+MCU_Timer
+{
+  Index = 9790009;
+  Name = \"30s\";
+  Desc = \"\";
+  Targets = [9790001];
+  Objects = [];
+  XPos = 21312.805;
+  YPos = 47.384;
+  ZPos = 107250.681;
+  XOri = 0.00;
+  YOri = 0.00;
+  ZOri = 0.00;
+  Time = 30;
+  Random = 100;
+}
 .
+1
+/Index.*=.*$PID;/
+/OnReports/
+/TarID/s/[[:digit:]]*;/9790008;/
 w
 q
 "
