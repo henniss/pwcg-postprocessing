@@ -7,21 +7,7 @@ function finish {
 }
 trap finish EXIT
 
-if ![[ -f ./config.sh ]] ; then
-    cat > ./config.sh <<EOF
-###########################################
-### MODIFY THESE VARIABLES FOR YOUR INSTALL
-###########################################
-root="E:\SteamLibrary\steamapps\common\IL-2 Sturmovik Battle of Stalingrad"
-sds="E:\SteamLibrary\steamapps\common\IL-2 Sturmovik Battle of Stalingrad\data\Multiplayer\il2dserverCoop.sds"
 
-root="$(cygpath -a "${root}")"
-sds="$(cygpath -a "${sds}")"
-PWCGInput="${root}/PWCGBoS/BoSData/Input"
-PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
-EOF
-fi
-source ./config.sh
 
 {
 # Check that we have common dependencies. If these are installed but can't be found you may need to add your cygwin bin directory to your path.
@@ -39,7 +25,21 @@ script_root="$(dirname "$script_root")"
 data="$(realpath ./data)"
 [[ -d "$script_root" ]] && cd "$script_root" || { echo "unable to cd to script root"; exit ; }
 
+if ! [[ -f ./config.sh ]] ; then
+    cat > ./config.sh << 'EOF'
+###########################################
+### MODIFY THESE VARIABLES FOR YOUR INSTALL
+###########################################
+root="E:\SteamLibrary\steamapps\common\IL-2 Sturmovik Battle of Stalingrad"
+sds="E:\SteamLibrary\steamapps\common\IL-2 Sturmovik Battle of Stalingrad\data\Multiplayer\il2dserverCoop.sds"
 
+root="$(cygpath -a "${root}")"
+sds="$(cygpath -a "${sds}")"
+PWCGInput="${root}/PWCGBoS/BoSData/Input"
+PWCGCampaigns="${root}/PWCGBoS/User/Campaigns"
+EOF
+fi
+source ./config.sh
 
 # Colors
 Color_Off='\033[0m'       # Text Reset

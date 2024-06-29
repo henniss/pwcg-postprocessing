@@ -14,7 +14,7 @@ set -e
 
 tempfile=$(mktemp)
 
-$ed "$mission" >/dev/null <<EOF
+$ed "$mission"  <<EOF
 /Name = "Flight/
 ka
 /Plane/
@@ -34,7 +34,8 @@ ka
 /Index
 .W $tempfile
 'a
-/TakeOff
+/Name = "TakeOff";
+?MCU_Waypoint
 /Index
 .W $tempfile
 EOF
@@ -45,7 +46,7 @@ FZPOS=$(sed -n -re '3s/.*ZPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
 XPOS=$(sed -n -re '4s/.*XPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
 ZPOS=$(sed -n -re '5s/.*ZPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
 RDV=$(sed -n -re '6s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
-TOWID=$(sed -n re '7s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
+TOWID=$(sed -n -re '7s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
 
 echo "PID: $PID"
 echo "FXPOS: $FXPOS"
@@ -68,7 +69,7 @@ ka
 .W $tempfile
 EOF
 
-ECFCT_ID=$(sed -n -re '7s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
+ECFCT_ID=$(sed -n -re '8s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
 echo "ECFCT_ID: $ECFCT_ID"
 
 escort_acquire="\$
@@ -173,10 +174,10 @@ MCU_TR_Subtitle
 
 MCU_Timer
 {
-  Index = 9790008;
+  Index = 9790016;
   Name = \"Takeoff ReportTarget\";
   Desc = \"\";
-  Targets = [9790009, $TOWID];
+  Targets = [9790017, $TOWID];
   Objects = [];
   XPos = 21312.805;
   YPos = 47.384;
@@ -190,7 +191,7 @@ MCU_Timer
 
 MCU_Timer
 {
-  Index = 9790009;
+  Index = 9790017;
   Name = \"30s\";
   Desc = \"\";
   Targets = [9790001];
@@ -207,8 +208,8 @@ MCU_Timer
 .
 1
 /Index.*=.*$PID;/
-/OnReports/
-/TarID/s/[[:digit:]]*;/9790008;/
+/OnMsg/
+/TarId/s/[[:digit:]]*;/9790016;/
 w
 q
 "
@@ -379,7 +380,7 @@ w
 q
 "
 
-echo "${escort_acquire?}" | $ed "$mission" >/dev/null
+echo "${escort_acquire?}" | $ed "$mission" 
 if ! [[ "$IS_ESCORT" == true ]] ; then
     echo "${escort_home?}" | $ed "$mission" >/dev/null
 fi
