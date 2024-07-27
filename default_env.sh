@@ -9,3 +9,6 @@ export TIMERS_N=1
 # These should be set in the env.sh file for each campaign. tac_code_pattern is as described in printf(3); it will be passed a single string.
 # export tac_code_pattern='7Y%1$s%1$s'
 # export tac_code_color="1111"
+
+# Use a larger VWP radius.
+export VWP_RADIUS_OVERRIDE=23000
