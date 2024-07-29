@@ -158,7 +158,7 @@ componentError () {
 makeBackup () (
     set -e
     mkdir -p "${backups}"
-    cp -f "${mdir?}/${missionBase?}".* "${backups?}"
+    cp "${mdir?}/${missionBase?}".* "${backups?}"
 )
 
 restoreBackup () (

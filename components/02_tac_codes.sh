@@ -54,6 +54,7 @@ names="$(cat "$tempfile" | cut -d '"' -f 2)"
 declare -A pcm_codes
 while IFS=, read a b c
 do 
+    [[ -z "$a" ]] && continue
     pcm_codes["$a"]="$c"
 done < "$PCM"
 
