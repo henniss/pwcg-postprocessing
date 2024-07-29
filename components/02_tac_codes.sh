@@ -30,6 +30,7 @@ sed -i -e '$a\' "$PCM"
 
 
 # enumerate pilots.
+PLAYER_FLIGHT=$(echo "$PLAYER_FLIGHT" | tr '/' '.')
 
 $ed "$mission" > /dev/null <<EOF
 /Flight ${PLAYER_FLIGHT}/
