@@ -13,9 +13,7 @@ apply() {
 set -e
 
 tempfile=$(mktemp)
-
-index=$(sed -n -re '/Index\s*=/s/Index\s*=\s*([0-9]*);/\1/p' "${mission}" | tr -d ' \r' | sort -nr | head -n 1)
-printf "max index: %q\n" "$index"
+ring=$(mktemp)
 
 $ed "$mission"  <<EOF
 /Name = "Flight/
@@ -31,6 +29,8 @@ ka
 /Rendezvous
 /XPos
 .W $tempfile
+/YPos
+.W $tempfile
 /ZPos
 .W $tempfile
 ?MCU_Waypoint
@@ -43,21 +43,6 @@ ka
 .W $tempfile
 EOF
 
-PID=$(sed -n -re '1s/.*LinkTrId.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
-FXPOS=$(sed -n -re '2s/.*XPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
-FZPOS=$(sed -n -re '3s/.*ZPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
-XPOS=$(sed -n -re '4s/.*XPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
-ZPOS=$(sed -n -re '5s/.*ZPos.*=\s*([0-9.]*);/\1/p' "$tempfile" | tr -d '\r')
-RDV=$(sed -n -re '6s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
-TOWID=$(sed -n -re '7s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
-
-echo "PID: $PID"
-echo "FXPOS: $FXPOS"
-echo "FZPOS: $FZPOS"
-echo "XPOS: $XPOS"
-echo "ZPOS: $ZPOS"
-echo "RDV: $RDV"
-echo "TOWID: $TOWID"
 
 # Crude, but do this separatly to avoid escape characters.
 grep -F "Flight $ESCORT_FLIGHT" "${mission}" -n
@@ -70,10 +55,109 @@ ka
 /Name = "Escort Cover Force Complete Tim.*"/
 ?Index =?
 .W $tempfile
+'a
+/Plane/
+/LinkTrId/
+.W $tempfile
+'a
+/Name = "Rendezvous";/
+?MCU_Waypoint?
+/Index/
+.W $tempfile
 EOF
 
-ECFCT_ID=$(sed -n -re '8s/.*Index.*=\s*([0-9]*);/\1/p' "$tempfile" | tr -d '\r')
-echo "ECFCT_ID: $ECFCT_ID"
+
+sed -i -re 's/\r//' "$tempfile"
+sed -i -re 's/.*=\s*([0-9.]*);/\1/' "$tempfile"
+readarray -t tempdata < "$tempfile"
+
+# ID of the lead plane, player flight.
+PID="${tempdata[0]}"
+# player's position
+FXPOS="${tempdata[1]}"
+FZPOS="${tempdata[2]}"
+# rendezvous position
+XPOS="${tempdata[3]}"
+YPOS="${tempdata[4]}"
+ZPOS="${tempdata[5]}"
+# rendezvous id (player side)
+RDV="${tempdata[6]}"
+# take-off waypoint id
+TOWID="${tempdata[7]}"
+# id for the escort-timer-force-complete timer -- doesn't seem to work?
+ECFCT_ID="${tempdata[8]}"
+# escort leader's id
+ESCORT_ID="${tempdata[9]}"
+# escort flight's rendezvous id
+ERDV_ID="${tempdata[10]}"
+
+for var in PID FXPOS FZPOS XPOS YPOS ZPOS RDV TOWID ECFCT_ID ESCORT_ID ERDV_ID; do
+  echo "${var}: ${!var@Q}"
+done
+
+six_roots_x=(1 0.5 -0.5 -1 -0.5 0.5)
+six_roots_z=(0 0.86 0.86 0 -0.86 -0.86)
+
+index=$(sed -n -re '/Index\s*=/s/Index\s*=\s*([0-9]*);/\1/p' "${mission}" | tr -d ' \r' | sort -nr | head -n 1)
+printf "max index: %q\n" "$index"
+
+ring_start=$((index + 1))
+
+cat >>"$ring" <<EOF
+?end of file?
+-1i
+
+EOF
+
+for i in $(seq 0 5); do
+
+Xi=$(echo "$XPOS + 1000 * ${six_roots_x[$i]}" | bc)
+Zi=$(echo "$ZPOS + 1000 * ${six_roots_z[$i]}" | bc)
+   
+cat >>$ring <<EOF
+MCU_Waypoint
+  {
+    Index = $(($index + 1 + $i));
+    Name = "Ring_${i}";
+    Desc = "";
+    Targets = [$(($index + 1 + ((1 + $i ) % 6)))];
+    Objects = [${ESCORT_ID}];
+    XPos = $Xi;
+    YPos = $YPOS;
+    ZPos = $Zi;
+    XOri = 0.00;
+    YOri = 270.80;
+    ZOri = 0.00;
+    Area = 500;
+    Speed = 300;
+    Priority = 1;
+  }
+  
+EOF
+
+done
+cat >>$ring <<EOF
+.
+w
+q
+EOF
+
+echo "Inserting ring."
+$ed "$mission" <"$ring"
+
+(( index+=6 ))
+
+escort_to_ring="\
+/Index.*=.*${ERDV_ID};/
+/Targets/
+s/Targets.*/  Targets = [${ring_start}];
+w
+q
+"
+
+echo "Attaching ring."
+echo "${escort_to_ring?}" | $ed "$mission" 
+
 
 escort_acquire="\$
 ?end of file?
