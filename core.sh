@@ -84,7 +84,34 @@ shouldHalt=true
 
 mission="${1}"
 mission="$(cygpath -a "${mission?}")"
-subtitles="${mission/.mission/.eng}"
+
+
+missionDir="$(dirname "$mission")"
+missionBase="$(basename "${mission?}")"
+missionCore="${missionBase%.*}"
+
+
+if [[ $missionCore =~ ^_.* ]]; then
+    echo "stripping leading underscore from filename"
+    rm "${missionDir}/${missionCore#_}"*
+    for f in "${missionDir}/${missionCore}"*; do
+        echo "$f"
+        x="$(basename "${f}")"
+        cp "${missionDir}/${x}" "${missionDir}/${x#_}"
+    done
+fi
+
+
+mission="${missionDir}/${missionCore#_}.mission"
+subtitles="${missionDir}/${missionCore#_}.mission"
+
+for f in mission subtitles; do 
+    if ! [[ -f "${!f}" ]]; then 
+        echo "missing file: $f (${!f})"
+        exit
+    fi
+done
+
 [[ -f "${mission?}" ]] || exit
 missionBase="$(basename "${mission?}")"
 missionBase=${missionBase/.mission/}
