@@ -14,6 +14,9 @@ set -e
 
 tempfile=$(mktemp)
 
+index=$(sed -n -re '/Index\s*=/s/Index\s*=\s*([0-9]*);/\1/p' "${mission}" | tr -d ' \r' | sort -nr | head -n 1)
+printf "max index: %q\n" "$index"
+
 $ed "$mission"  <<EOF
 /Name = "Flight/
 ka
@@ -78,10 +81,10 @@ escort_acquire="\$
 
 MCU_CheckZone
 {
-  Index = 9790001;
+  Index = $((index + 1));
   Name = \"Object player\";
   Desc = \"\";
-  Targets = [9790004,9790005,9790006,9790007,9790009];
+  Targets = [$((index + 4)),$((index + 5)),$((index + 6)),$((index + 7)),$((index + 9))];
   Objects = [$PID];
   XPos = $XPOS;
   YPos = 46.317;
@@ -96,10 +99,10 @@ MCU_CheckZone
 
 MCU_Deactivate
 {
-  Index = 9790004;
+  Index = $((index + 4));
   Name = \"\";
   Desc = \"\";
-  Targets = [9790001];
+  Targets = [$((index + 1))];
   Objects = [];
   XPos = 21305.685;
   YPos = 47.353;
@@ -111,7 +114,7 @@ MCU_Deactivate
 
 MCU_Timer
 {
-  Index = 9790005;
+  Index = $((index + 5));
   Name = \"Target Rendezvous\";
   Desc = \"\";
   Targets = [$RDV];
@@ -128,7 +131,7 @@ MCU_Timer
 
 MCU_CMD_ForceComplete
 {
-  Index = 9790006;
+  Index = $((index + 6));
   Name = \"Object Player\";
   Desc = \"\";
   Targets = [];
@@ -145,7 +148,7 @@ MCU_CMD_ForceComplete
 
 MCU_TR_Subtitle
 {
-  Index = 9790007;
+  Index = $((index + 7));
   Name = \"DEBUG\";
   Desc = \"\";
   Targets = [];
@@ -174,10 +177,10 @@ MCU_TR_Subtitle
 
 MCU_Timer
 {
-  Index = 9790016;
+  Index = $((index + 16));
   Name = \"Takeoff ReportTarget\";
   Desc = \"\";
-  Targets = [9790017, $TOWID];
+  Targets = [$((index + 17)), $TOWID];
   Objects = [];
   XPos = 21312.805;
   YPos = 47.384;
@@ -191,10 +194,10 @@ MCU_Timer
 
 MCU_Timer
 {
-  Index = 9790017;
+  Index = $((index + 17));
   Name = \"30s\";
   Desc = \"\";
-  Targets = [9790001];
+  Targets = [$((index + 1))];
   Objects = [];
   XPos = 21312.805;
   YPos = 47.384;
@@ -209,7 +212,7 @@ MCU_Timer
 1
 /Index.*=.*$PID;/
 /OnMsg/
-/TarId/s/[[:digit:]]*;/9790016;/
+/TarId/s/[[:digit:]]*;/$((index + 16));/
 w
 q
 "
@@ -219,10 +222,10 @@ escort_home="\$
 -1i
 MCU_CheckZone
 {
-  Index = 9790008;
+  Index = $((index + 8));
   Name = \"Object player\";
   Desc = \"\";
-  Targets = [9790011,9790014,9790015];
+  Targets = [$((index + 11)),$((index + 14)),$((index + 15))];
   Objects = [$PID];
   XPos = $FXPOS;
   YPos = 46.317;
@@ -237,10 +240,10 @@ MCU_CheckZone
 
 MCU_Timer
 {
-  Index = 9790009;
+  Index = $((index + 9));
   Name = \"10m\";
   Desc = \"\";
-  Targets = [9790008,9790010,9790013];
+  Targets = [$((index + 8)),$((index + 10)),$((index + 13))];
   Objects = [];
   XPos = 21629.601;
   YPos = 230.517;
@@ -254,10 +257,10 @@ MCU_Timer
 
 MCU_CheckZone
 {
-  Index = 9790010;
+  Index = $((index + 10));
   Name = \"Object player\";
   Desc = \"\";
-  Targets = [9790011,9790015,9790014];
+  Targets = [$((index + 11)),$((index + 15)),$((index + 14))];
   Objects = [$PID];
   XPos = $XPOS;
   YPos = 46.317;
@@ -272,10 +275,10 @@ MCU_CheckZone
 
 MCU_Timer
 {
-  Index = 9790011;
+  Index = $((index + 11));
   Name = \"Escort Cover Complete\";
   Desc = \"\";
-  Targets = [$ECFCT_ID,9790012];
+  Targets = [$ECFCT_ID,$((index + 12))];
   Objects = [];
   XPos = 22354.265;
   YPos = 171.132;
@@ -289,7 +292,7 @@ MCU_Timer
 
 MCU_TR_Subtitle
 {
-  Index = 9790012;
+  Index = $((index + 12));
   Name = \"Translator Subtitle\";
   Desc = \"\";
   Targets = [];
@@ -318,7 +321,7 @@ MCU_TR_Subtitle
 
 MCU_TR_Subtitle
 {
-  Index = 9790013;
+  Index = $((index + 13));
   Name = \"Translator Subtitle\";
   Desc = \"\";
   Targets = [];
@@ -347,10 +350,10 @@ MCU_TR_Subtitle
 
 MCU_Deactivate
 {
-  Index = 9790014;
+  Index = $((index + 14));
   Name = \"Trigger Deactivate\";
   Desc = \"\";
-  Targets = [9790008];
+  Targets = [$((index + 8))];
   Objects = [];
   XPos = 21646.066;
   YPos = 176.988;
@@ -363,10 +366,10 @@ MCU_Deactivate
 
 MCU_Deactivate
 {
-  Index = 9790015;
+  Index = $((index + 15));
   Name = \"Trigger Deactivate\";
   Desc = \"\";
-  Targets = [9790010];
+  Targets = [$((index + 10))];
   Objects = [];
   XPos = 21696.938;
   YPos = 176.988;
@@ -379,6 +382,8 @@ MCU_Deactivate
 w
 q
 "
+
+((index += 17))
 
 echo "${escort_acquire?}" | $ed "$mission" 
 if ! [[ "$IS_ESCORT" == true ]] ; then
