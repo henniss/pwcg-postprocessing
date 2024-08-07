@@ -62,7 +62,10 @@ ka
 'a
 /Name = "Rendezvous";/
 ?MCU_Waypoint?
+kb
 /Index/
+.W $tempfile
+/YPos/
 .W $tempfile
 EOF
 
@@ -90,6 +93,8 @@ ECFCT_ID="${tempdata[8]}"
 ESCORT_ID="${tempdata[9]}"
 # escort flight's rendezvous id
 ERDV_ID="${tempdata[10]}"
+# escort flight's rendezvous altitude
+E_YPOS="${tempdata[11]}"
 
 for var in PID FXPOS FZPOS XPOS YPOS ZPOS RDV TOWID ECFCT_ID ESCORT_ID ERDV_ID; do
   echo "${var}: ${!var@Q}"
@@ -123,7 +128,7 @@ MCU_Waypoint
     Targets = [$(($index + 1 + ((1 + $i ) % 6)))];
     Objects = [${ESCORT_ID}];
     XPos = $Xi;
-    YPos = $YPOS;
+    YPos = $E_YPOS;
     ZPos = $Zi;
     XOri = 0.00;
     YOri = 270.80;
