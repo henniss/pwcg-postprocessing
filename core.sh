@@ -113,6 +113,7 @@ for f in mission subtitles; do
 done
 
 campaign=$(echo ${missionBase} | cut -d ' ' -f 1)
+campaign="${campaign#_}"
 [[ -d "${PWCGCampaigns}/${campaign?}" ]] || campaign=""
 echo "mission: ${mission}"
 echo "missionBase: ${missionBase}"
