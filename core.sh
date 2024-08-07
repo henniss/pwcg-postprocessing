@@ -103,7 +103,7 @@ fi
 
 
 mission="${missionDir}/${missionCore#_}.mission"
-subtitles="${missionDir}/${missionCore#_}.mission"
+subtitles="${missionDir}/${missionCore#_}.eng"
 
 for f in mission subtitles; do 
     if ! [[ -f "${!f}" ]]; then 
@@ -112,9 +112,6 @@ for f in mission subtitles; do
     fi
 done
 
-[[ -f "${mission?}" ]] || exit
-missionBase="$(basename "${mission?}")"
-missionBase=${missionBase/.mission/}
 campaign=$(echo ${missionBase} | cut -d ' ' -f 1)
 [[ -d "${PWCGCampaigns}/${campaign?}" ]] || campaign=""
 echo "mission: ${mission}"
