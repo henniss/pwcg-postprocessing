@@ -19,6 +19,9 @@ apply () {
     
     HEADING=$(cat "$AL" | jq ".locations | map(select(.name == \"${HOMEBASE?}\")) | first.orientation.yOri")
     HEADING=$(printf "%.0f\n" $HEADING)
+    if [[ ${INVERT_WIND_HEADING:-} == "true" ]]; then
+        HEADING=$(( (HEADING + 180) % 360 ))
+    fi
     echo "Adjusting wind heading for $HOMEBASE"
     echo "Take-Off Heading $HEADING"
     
@@ -45,7 +48,7 @@ EOF
 
     speed=$(cat $tempfile | sed -e 's/.*:.*:[[:space:]]*\([[:digit:]]*\);.*/\1/')
     echo "${new@Q} ${speed@Q}"
-    dir=$((($new + 180) % 360))
+    dir=$(($new % 360))
     briefing_text=$(perl -e "printf '<br><br>Wind: to %d at %d m\/s', $dir, $speed")
     
     echo "${briefing_text@Q}"
