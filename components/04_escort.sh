@@ -171,7 +171,7 @@ escort_acquire="\$
 MCU_CheckZone
 {
   Index = $((index + 1));
-  Name = \"Object player\";
+  Name = \"Rendezvous CZ\";
   Desc = \"\";
   Targets = [$((index + 4)),$((index + 5)),$((index + 6)),$((index + 7)),$((index + 9))];
   Objects = [$PID];
@@ -189,7 +189,7 @@ MCU_CheckZone
 MCU_Deactivate
 {
   Index = $((index + 4));
-  Name = \"\";
+  Name = \"Once\";
   Desc = \"\";
   Targets = [$((index + 1))];
   Objects = [];
@@ -204,7 +204,7 @@ MCU_Deactivate
 MCU_Timer
 {
   Index = $((index + 5));
-  Name = \"Target Rendezvous\";
+  Name = \"2s\";
   Desc = \"\";
   Targets = [$RDV];
   Objects = [];
@@ -221,7 +221,7 @@ MCU_Timer
 MCU_CMD_ForceComplete
 {
   Index = $((index + 6));
-  Name = \"Object Player\";
+  Name = \"Cancel Waypoints\";
   Desc = \"\";
   Targets = [];
   Objects = [$PID];
@@ -312,7 +312,7 @@ escort_home="\$
 MCU_CheckZone
 {
   Index = $((index + 8));
-  Name = \"Object player\";
+  Name = \"Origin CZ\";
   Desc = \"\";
   Targets = [$((index + 11)),$((index + 14)),$((index + 15))];
   Objects = [$PID];
@@ -347,7 +347,7 @@ MCU_Timer
 MCU_CheckZone
 {
   Index = $((index + 10));
-  Name = \"Object player\";
+  Name = \"RDV CZ\";
   Desc = \"\";
   Targets = [$((index + 11)),$((index + 15)),$((index + 14))];
   Objects = [$PID];
@@ -365,7 +365,7 @@ MCU_CheckZone
 MCU_Timer
 {
   Index = $((index + 11));
-  Name = \"Escort Cover Complete\";
+  Name = \"0s\";
   Desc = \"\";
   Targets = [$ECFCT_ID,$((index + 12))];
   Objects = [];
@@ -382,7 +382,7 @@ MCU_Timer
 MCU_TR_Subtitle
 {
   Index = $((index + 12));
-  Name = \"Translator Subtitle\";
+  Name = \"DEBUG\";
   Desc = \"\";
   Targets = [];
   Objects = [];
@@ -411,7 +411,7 @@ MCU_TR_Subtitle
 MCU_TR_Subtitle
 {
   Index = $((index + 13));
-  Name = \"Translator Subtitle\";
+  Name = \"DEBUG\";
   Desc = \"\";
   Targets = [];
   Objects = [];
@@ -440,7 +440,7 @@ MCU_TR_Subtitle
 MCU_Deactivate
 {
   Index = $((index + 14));
-  Name = \"Trigger Deactivate\";
+  Name = \"CZ fire once\";
   Desc = \"\";
   Targets = [$((index + 8))];
   Objects = [];
@@ -456,7 +456,7 @@ MCU_Deactivate
 MCU_Deactivate
 {
   Index = $((index + 15));
-  Name = \"Trigger Deactivate\";
+  Name = \"CZ fire once\";
   Desc = \"\";
   Targets = [$((index + 10))];
   Objects = [];
