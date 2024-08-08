@@ -173,7 +173,7 @@ MCU_CheckZone
   Index = $((index + 1));
   Name = \"Rendezvous CZ\";
   Desc = \"\";
-  Targets = [$((index + 4)),$((index + 5)),$((index + 6)),$((index + 7)),$((index + 9))];
+  Targets = [$((index + 4)),$((index + 5)),$((index + 6)),$((index + 7)),$((index + 9)),$((index + 18))];
   Objects = [$PID];
   XPos = $XPOS;
   YPos = 46.317;
@@ -288,14 +288,30 @@ MCU_Timer
   Desc = \"\";
   Targets = [$((index + 1))];
   Objects = [];
-  XPos = 21312.805;
+  XPos = $XPOS;
   YPos = 47.384;
-  ZPos = 107250.681;
+  ZPos = $ZPOS;
   XOri = 0.00;
   YOri = 0.00;
   ZOri = 0.00;
   Time = 30;
   Random = 100;
+}
+MCU_CMD_ForceComplete
+{
+  Index = $((index + 18));
+  Name = \"Cancel Waypoints Escort\";
+  Desc = \"\";
+  Targets = [];
+  Objects = [$ESCORT_ID];
+  XPos = $XPOS;
+  YPos = 47.087;
+  ZPos = $ZPOS;
+  XOri = 0.00;
+  YOri = 0.00;
+  ZOri = 0.00;
+  Priority = 2;
+  EmergencyOrdnanceDrop = 0;
 }
 .
 1
@@ -472,7 +488,7 @@ w
 q
 "
 
-((index += 17))
+((index += 18))
 
 echo "${escort_acquire?}" | $ed "$mission" 
 if ! [[ "$IS_ESCORT" == true ]] ; then
