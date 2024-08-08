@@ -28,6 +28,7 @@ set -e
 
 sed -i -e '$a\' "$PCM"
 
+dos2unix "$PCM"
 
 # enumerate pilots.
 PLAYER_FLIGHT=$(echo "$PLAYER_FLIGHT" | tr '/' '.')
@@ -72,8 +73,12 @@ n
 /}/
 kb
 n
-'a,'bg/TCode \=/s/".*";/"$fullcode";/
-'a,'bg/TCodeColor/s/".*";/"$tac_code_color";/
+'a,'bg/TCode \=/d
+'a,'bg/TCodeColor/d
+'bi
+  TCode = "$fullcode";
+  TCodeColor = "$tac_code_color";
+.
 EOF
             continue 2
         fi
@@ -86,6 +91,6 @@ w
 q
 EOF
 echo -e "executing: \n$tempscript"
-cat "$tempscript" | $ed "$mission" > /dev/null
+cat "$tempscript" | $ed "$mission"
 }
 
