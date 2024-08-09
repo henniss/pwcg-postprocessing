@@ -155,7 +155,7 @@ $ed "$mission" <"$ring"
 escort_to_ring="\
 /Index.*=.*${ERDV_ID};/
 /Targets/
-s/Targets.*/  Targets = [${ring_start}];
+s/Targets.*/  Targets = [];
 w
 q
 "
@@ -297,22 +297,7 @@ MCU_Timer
   Time = 30;
   Random = 100;
 }
-MCU_CMD_ForceComplete
-{
-  Index = $((index + 18));
-  Name = \"Cancel Waypoints Escort\";
-  Desc = \"\";
-  Targets = [];
-  Objects = [$ESCORT_ID];
-  XPos = $XPOS;
-  YPos = 47.087;
-  ZPos = $ZPOS;
-  XOri = 0.00;
-  YOri = 0.00;
-  ZOri = 0.00;
-  Priority = 2;
-  EmergencyOrdnanceDrop = 0;
-}
+
 .
 1
 /Index.*=.*$PID;/
