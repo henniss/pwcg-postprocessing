@@ -1,0 +1,3600 @@
+Group
+{
+  Name = "TankBattle";
+  Index = 1138;
+  Desc = "";
+  Vehicle
+  {
+    Name = "BT-7";
+    Index = 2;
+    LinkTrId = 3;
+    XPos = 21823.149;
+    YPos = 78.346;
+    ZPos = 154035.413;
+    XOri = 1.93;
+    YOri = 211.51;
+    ZOri = 358.43;
+    Script = "LuaScripts\WorldObjects\vehicles\kv1s.txt";
+    Model = "graphics\vehicles\kv1s\kv1s.mgm";
+    Desc = "";
+    Country = 101;
+    NumberInFormation = 0;
+    Vulnerable = 1;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 1;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 3;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21823.149;
+    YPos = 78.546;
+    ZPos = 154035.413;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 2;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 13;
+        TarId = 5;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "BT-7";
+    Index = 6;
+    LinkTrId = 7;
+    XPos = 21792.345;
+    YPos = 77.879;
+    ZPos = 154091.997;
+    XOri = 359.18;
+    YOri = 211.51;
+    ZOri = 1.46;
+    Script = "LuaScripts\WorldObjects\vehicles\kv1s.txt";
+    Model = "graphics\vehicles\kv1s\kv1s.mgm";
+    Desc = "";
+    Country = 101;
+    NumberInFormation = 0;
+    Vulnerable = 1;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 1;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "%20%20%20%20";
+    TCodeColor = "0000";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 7;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21792.345;
+    YPos = 78.079;
+    ZPos = 154091.997;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 6;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 13;
+        TarId = 5;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "BT-7";
+    Index = 9;
+    LinkTrId = 10;
+    XPos = 21756.113;
+    YPos = 78.451;
+    ZPos = 154139.306;
+    XOri = 0.75;
+    YOri = 211.51;
+    ZOri = 0.50;
+    Script = "LuaScripts\WorldObjects\vehicles\kv1s.txt";
+    Model = "graphics\vehicles\kv1s\kv1s.mgm";
+    Desc = "";
+    Country = 101;
+    NumberInFormation = 0;
+    Vulnerable = 1;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 1;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 10;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21756.113;
+    YPos = 78.651;
+    ZPos = 154139.306;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 9;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 13;
+        TarId = 5;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "BT-7";
+    Index = 12;
+    LinkTrId = 13;
+    XPos = 21722.598;
+    YPos = 78.123;
+    ZPos = 154181.006;
+    XOri = 359.28;
+    YOri = 211.51;
+    ZOri = 0.22;
+    Script = "LuaScripts\WorldObjects\vehicles\kv1s.txt";
+    Model = "graphics\vehicles\kv1s\kv1s.mgm";
+    Desc = "";
+    Country = 101;
+    NumberInFormation = 0;
+    Vulnerable = 1;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 1;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 13;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21722.598;
+    YPos = 78.323;
+    ZPos = 154181.006;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 12;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 13;
+        TarId = 5;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "BT-7";
+    Index = 15;
+    LinkTrId = 16;
+    XPos = 21643.741;
+    YPos = 78.827;
+    ZPos = 154265.125;
+    XOri = 359.54;
+    YOri = 242.96;
+    ZOri = 359.80;
+    Script = "LuaScripts\WorldObjects\vehicles\kv1s.txt";
+    Model = "graphics\vehicles\kv1s\kv1s.mgm";
+    Desc = "";
+    Country = 101;
+    NumberInFormation = 0;
+    Vulnerable = 1;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 1;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 16;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21643.741;
+    YPos = 79.027;
+    ZPos = 154265.125;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 15;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 13;
+        TarId = 5;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "BT-7";
+    Index = 18;
+    LinkTrId = 19;
+    XPos = 21591.445;
+    YPos = 78.642;
+    ZPos = 154304.069;
+    XOri = 1.25;
+    YOri = 242.96;
+    ZOri = 1.19;
+    Script = "LuaScripts\WorldObjects\vehicles\kv1s.txt";
+    Model = "graphics\vehicles\kv1s\kv1s.mgm";
+    Desc = "";
+    Country = 101;
+    NumberInFormation = 0;
+    Vulnerable = 1;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 1;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "%20%20%20%20";
+    TCodeColor = "0000";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 19;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21591.445;
+    YPos = 78.842;
+    ZPos = 154304.069;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 18;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 13;
+        TarId = 5;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "BT-7";
+    Index = 21;
+    LinkTrId = 22;
+    XPos = 21539.453;
+    YPos = 79.624;
+    ZPos = 154341.014;
+    XOri = 0.21;
+    YOri = 239.12;
+    ZOri = 0.70;
+    Script = "LuaScripts\WorldObjects\vehicles\kv1s.txt";
+    Model = "graphics\vehicles\kv1s\kv1s.mgm";
+    Desc = "";
+    Country = 101;
+    NumberInFormation = 0;
+    Vulnerable = 1;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 1;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 22;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21539.453;
+    YPos = 79.824;
+    ZPos = 154341.014;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 21;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 13;
+        TarId = 5;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "BT-7";
+    Index = 24;
+    LinkTrId = 25;
+    XPos = 21486.181;
+    YPos = 80.012;
+    ZPos = 154378.303;
+    XOri = 0.59;
+    YOri = 239.12;
+    ZOri = 0.58;
+    Script = "LuaScripts\WorldObjects\vehicles\kv1s.txt";
+    Model = "graphics\vehicles\kv1s\kv1s.mgm";
+    Desc = "";
+    Country = 101;
+    NumberInFormation = 0;
+    Vulnerable = 1;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 1;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 25;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21486.181;
+    YPos = 80.212;
+    ZPos = 154378.303;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 24;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 13;
+        TarId = 5;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "Panzer III-l";
+    Index = 27;
+    LinkTrId = 28;
+    XPos = 19901.654;
+    YPos = 91.777;
+    ZPos = 152121.161;
+    XOri = 359.77;
+    YOri = 55.20;
+    ZOri = 1.49;
+    Script = "LuaScripts\WorldObjects\vehicles\pziii-l.txt";
+    Model = "graphics\vehicles\pziii-l\pziii-l.mgm";
+    Desc = "";
+    Country = 201;
+    NumberInFormation = 0;
+    Vulnerable = 0;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 0;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 28;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 19901.654;
+    YPos = 91.977;
+    ZPos = 152121.161;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 27;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 12;
+        TarId = 30;
+      }
+      OnEvent
+      {
+        Type = 13;
+        TarId = 31;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "Panzer III-l";
+    Index = 32;
+    LinkTrId = 33;
+    XPos = 19918.396;
+    YPos = 91.650;
+    ZPos = 152107.707;
+    XOri = 359.77;
+    YOri = 55.20;
+    ZOri = 1.49;
+    Script = "LuaScripts\WorldObjects\vehicles\pziii-l.txt";
+    Model = "graphics\vehicles\pziii-l\pziii-l.mgm";
+    Desc = "";
+    Country = 201;
+    NumberInFormation = 0;
+    Vulnerable = 0;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 0;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 33;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 19918.396;
+    YPos = 91.850;
+    ZPos = 152107.707;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 32;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 12;
+        TarId = 30;
+      }
+      OnEvent
+      {
+        Type = 13;
+        TarId = 31;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "Panzer III-l";
+    Index = 35;
+    LinkTrId = 36;
+    XPos = 19935.604;
+    YPos = 91.668;
+    ZPos = 152094.050;
+    XOri = 0.56;
+    YOri = 55.20;
+    ZOri = 0.35;
+    Script = "LuaScripts\WorldObjects\vehicles\pziii-l.txt";
+    Model = "graphics\vehicles\pziii-l\pziii-l.mgm";
+    Desc = "";
+    Country = 201;
+    NumberInFormation = 0;
+    Vulnerable = 0;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 0;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 36;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 19935.604;
+    YPos = 91.868;
+    ZPos = 152094.050;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 35;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 12;
+        TarId = 30;
+      }
+      OnEvent
+      {
+        Type = 13;
+        TarId = 31;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "Panzer III-l";
+    Index = 38;
+    LinkTrId = 39;
+    XPos = 19954.040;
+    YPos = 91.763;
+    ZPos = 152080.366;
+    XOri = 359.09;
+    YOri = 55.20;
+    ZOri = 359.32;
+    Script = "LuaScripts\WorldObjects\vehicles\pziii-l.txt";
+    Model = "graphics\vehicles\pziii-l\pziii-l.mgm";
+    Desc = "";
+    Country = 201;
+    NumberInFormation = 0;
+    Vulnerable = 0;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 0;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 39;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 19954.040;
+    YPos = 91.963;
+    ZPos = 152080.366;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 38;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 12;
+        TarId = 30;
+      }
+      OnEvent
+      {
+        Type = 13;
+        TarId = 31;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "Panzer III-h";
+    Index = 41;
+    LinkTrId = 42;
+    XPos = 19974.799;
+    YPos = 91.364;
+    ZPos = 152061.831;
+    XOri = 359.09;
+    YOri = 55.20;
+    ZOri = 359.32;
+    Script = "LuaScripts\WorldObjects\vehicles\pziii-h.txt";
+    Model = "graphics\vehicles\pziii-h\pziii-h.mgm";
+    Desc = "";
+    Country = 201;
+    NumberInFormation = 0;
+    Vulnerable = 0;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 0;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 42;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 19974.799;
+    YPos = 91.564;
+    ZPos = 152061.831;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 41;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 12;
+        TarId = 30;
+      }
+      OnEvent
+      {
+        Type = 13;
+        TarId = 31;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "Panzer III-h";
+    Index = 44;
+    LinkTrId = 45;
+    XPos = 19994.669;
+    YPos = 90.884;
+    ZPos = 152044.571;
+    XOri = 358.50;
+    YOri = 54.51;
+    ZOri = 0.16;
+    Script = "LuaScripts\WorldObjects\vehicles\pziii-h.txt";
+    Model = "graphics\vehicles\pziii-h\pziii-h.mgm";
+    Desc = "";
+    Country = 201;
+    NumberInFormation = 0;
+    Vulnerable = 0;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 0;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 45;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 19994.669;
+    YPos = 91.084;
+    ZPos = 152044.571;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 44;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 12;
+        TarId = 30;
+      }
+      OnEvent
+      {
+        Type = 13;
+        TarId = 31;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "Panzer III-h";
+    Index = 47;
+    LinkTrId = 48;
+    XPos = 20010.580;
+    YPos = 90.432;
+    ZPos = 152027.444;
+    XOri = 359.21;
+    YOri = 54.51;
+    ZOri = 0.67;
+    Script = "LuaScripts\WorldObjects\vehicles\pziii-h.txt";
+    Model = "graphics\vehicles\pziii-h\pziii-h.mgm";
+    Desc = "";
+    Country = 201;
+    NumberInFormation = 0;
+    Vulnerable = 0;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 0;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 48;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 20010.580;
+    YPos = 90.632;
+    ZPos = 152027.444;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 47;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 12;
+        TarId = 30;
+      }
+      OnEvent
+      {
+        Type = 13;
+        TarId = 31;
+      }
+    }
+  }
+  
+
+  Vehicle
+  {
+    Name = "Panzer III-h";
+    Index = 50;
+    LinkTrId = 51;
+    XPos = 20027.828;
+    YPos = 90.149;
+    ZPos = 152015.665;
+    XOri = 359.21;
+    YOri = 54.51;
+    ZOri = 0.67;
+    Script = "LuaScripts\WorldObjects\vehicles\pziii-h.txt";
+    Model = "graphics\vehicles\pziii-h\pziii-h.mgm";
+    Desc = "";
+    Country = 201;
+    NumberInFormation = 0;
+    Vulnerable = 0;
+    Engageable = 1;
+    LimitAmmo = 0;
+    AILevel = 2;
+    DamageReport = 50;
+    DamageThreshold = 0;
+    DeleteAfterDeath = 1;
+    CoopStart = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    PayloadId = 0;
+    WMMask = 1;
+    Fuel = 1;
+    Callnum = 0;
+    Skin = "";
+    RepairFriendlies = 0;
+    RehealFriendlies = 0;
+    RearmFriendlies = 0;
+    RefuelFriendlies = 0;
+    RepairTime = 0;
+    RehealTime = 0;
+    RearmTime = 0;
+    RefuelTime = 0;
+    MaintenanceRadius = 10;
+    TCode = "";
+    TCodeColor = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 51;
+    Name = "Vehicle entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 20027.828;
+    YPos = 90.349;
+    ZPos = 152015.665;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 50;
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 12;
+        TarId = 30;
+      }
+      OnEvent
+      {
+        Type = 13;
+        TarId = 31;
+      }
+    }
+  }
+  
+
+  MCU_Counter
+  {
+    Index = 31;
+    Name = "German Tanks killed";
+    Desc = "";
+    Targets = [54,55,56,57,58,59,60];
+    Objects = [];
+    XPos = 19854.500;
+    YPos = 50.393;
+    ZPos = 151868.374;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Counter = 3;
+    Dropcount = 0;
+  }
+  
+
+  MCU_Counter
+  {
+    Index = 30;
+    Name = "German Tanks damaged";
+    Desc = "";
+    Targets = [54,55,56,57,59,62,60];
+    Objects = [];
+    XPos = 19908.172;
+    YPos = 51.469;
+    ZPos = 151868.288;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Counter = 3;
+    Dropcount = 0;
+  }
+  
+
+  MCU_Waypoint
+  {
+    Index = 55;
+    Name = "German tank fallback";
+    Desc = "";
+    Targets = [];
+    Objects = [51,48,45,42,39,36,33,28];
+    XPos = 18571.687;
+    YPos = 97.690;
+    ZPos = 149874.050;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Area = 200;
+    Speed = 100;
+    Priority = 1;
+  }
+  
+
+  MCU_CMD_ForceComplete
+  {
+    Index = 54;
+    Name = "command Force Complete";
+    Desc = "";
+    Targets = [];
+    Objects = [51,48,45,42,39,36,33,28];
+    XPos = 19879.309;
+    YPos = 51.009;
+    ZPos = 151868.106;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Priority = 2;
+    EmergencyOrdnanceDrop = 0;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 65;
+    LinkTrId = 66;
+    XPos = 20043.028;
+    YPos = 101.223;
+    ZPos = 152023.091;
+    XOri = 0.00;
+    YOri = 358.31;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 66;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 20043.028;
+    YPos = 101.423;
+    ZPos = 152023.091;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 65;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 68;
+    LinkTrId = 69;
+    XPos = 20022.306;
+    YPos = 101.398;
+    ZPos = 152038.875;
+    XOri = 0.00;
+    YOri = 7.85;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 69;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 20022.306;
+    YPos = 101.598;
+    ZPos = 152038.875;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 68;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 71;
+    LinkTrId = 72;
+    XPos = 20000.849;
+    YPos = 101.424;
+    ZPos = 152052.853;
+    XOri = 0.00;
+    YOri = 9.55;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 72;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 20000.849;
+    YPos = 101.624;
+    ZPos = 152052.853;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 71;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 74;
+    LinkTrId = 75;
+    XPos = 19981.484;
+    YPos = 101.391;
+    ZPos = 152069.417;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 75;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [42];
+    Objects = [];
+    XPos = 19981.484;
+    YPos = 101.591;
+    ZPos = 152069.417;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 74;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 77;
+    LinkTrId = 78;
+    XPos = 19961.053;
+    YPos = 101.904;
+    ZPos = 152089.568;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 78;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [39];
+    Objects = [];
+    XPos = 19961.053;
+    YPos = 102.104;
+    ZPos = 152089.568;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 77;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 80;
+    LinkTrId = 81;
+    XPos = 19938.171;
+    YPos = 101.919;
+    ZPos = 152106.213;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 81;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [36];
+    Objects = [];
+    XPos = 19938.171;
+    YPos = 102.119;
+    ZPos = 152106.213;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 80;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 83;
+    LinkTrId = 84;
+    XPos = 19922.166;
+    YPos = 101.911;
+    ZPos = 152122.387;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 84;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [33];
+    Objects = [];
+    XPos = 19922.166;
+    YPos = 102.111;
+    ZPos = 152122.387;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 83;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 86;
+    LinkTrId = 87;
+    XPos = 19902.278;
+    YPos = 102.174;
+    ZPos = 152138.690;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 87;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [28];
+    Objects = [];
+    XPos = 19902.278;
+    YPos = 102.374;
+    ZPos = 152138.690;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 86;
+  }
+  
+
+  MCU_CMD_Effect
+  {
+    Index = 56;
+    Name = "Start Smoke";
+    Desc = "";
+    Targets = [];
+    Objects = [66,69,72,75,78,81,84,87,90,91,92,93,94,95,96];
+    XPos = 19881.242;
+    YPos = 49.908;
+    ZPos = 151906.708;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    ActionType = 0;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 57;
+    Name = "Smoke Timer";
+    Desc = "";
+    Targets = [98];
+    Objects = [];
+    XPos = 19871.487;
+    YPos = 49.423;
+    ZPos = 151907.304;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 180;
+    Random = 100;
+  }
+  
+
+  MCU_CMD_Effect
+  {
+    Index = 98;
+    Name = "Stop Smoke";
+    Desc = "";
+    Targets = [];
+    Objects = [66,69,72,75,78,81,84,87,90,91,92,93,94,95,96];
+    XPos = 19860.552;
+    YPos = 49.240;
+    ZPos = 151908.044;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    ActionType = 1;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 100;
+    LinkTrId = 95;
+    XPos = 19935.946;
+    YPos = 102.065;
+    ZPos = 152120.829;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 95;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [33];
+    Objects = [];
+    XPos = 19935.946;
+    YPos = 102.265;
+    ZPos = 152120.829;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 100;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 102;
+    LinkTrId = 96;
+    XPos = 19917.303;
+    YPos = 101.958;
+    ZPos = 152136.629;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 96;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [28];
+    Objects = [];
+    XPos = 19917.303;
+    YPos = 102.158;
+    ZPos = 152136.629;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 102;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 104;
+    LinkTrId = 93;
+    XPos = 19978.674;
+    YPos = 101.525;
+    ZPos = 152085.321;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 93;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [39];
+    Objects = [];
+    XPos = 19978.674;
+    YPos = 101.725;
+    ZPos = 152085.321;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 104;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 106;
+    LinkTrId = 94;
+    XPos = 19955.045;
+    YPos = 102.170;
+    ZPos = 152104.477;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 94;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [36];
+    Objects = [];
+    XPos = 19955.045;
+    YPos = 102.370;
+    ZPos = 152104.477;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 106;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 108;
+    LinkTrId = 91;
+    XPos = 20020.161;
+    YPos = 101.838;
+    ZPos = 152055.138;
+    XOri = 0.00;
+    YOri = 7.03;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 91;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 20020.161;
+    YPos = 102.038;
+    ZPos = 152055.138;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 108;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 110;
+    LinkTrId = 92;
+    XPos = 19997.234;
+    YPos = 101.730;
+    ZPos = 152067.912;
+    XOri = 0.00;
+    YOri = 7.03;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 92;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [42];
+    Objects = [];
+    XPos = 19997.234;
+    YPos = 101.930;
+    ZPos = 152067.912;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 110;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 112;
+    LinkTrId = 90;
+    XPos = 20040.801;
+    YPos = 101.554;
+    ZPos = 152038.322;
+    XOri = 0.00;
+    YOri = 355.79;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 90;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 20040.801;
+    YPos = 101.754;
+    ZPos = 152038.322;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 112;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 114;
+    LinkTrId = 115;
+    XPos = 21802.683;
+    YPos = 107.625;
+    ZPos = 154009.708;
+    XOri = 0.00;
+    YOri = 358.31;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 115;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21802.683;
+    YPos = 107.825;
+    ZPos = 154009.708;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 114;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 117;
+    LinkTrId = 118;
+    XPos = 21769.207;
+    YPos = 108.007;
+    ZPos = 154062.148;
+    XOri = 0.00;
+    YOri = 7.85;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 118;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21769.207;
+    YPos = 108.207;
+    ZPos = 154062.148;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 117;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 120;
+    LinkTrId = 121;
+    XPos = 21783.576;
+    YPos = 107.763;
+    ZPos = 154032.453;
+    XOri = 0.00;
+    YOri = 355.79;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 121;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21783.576;
+    YPos = 107.963;
+    ZPos = 154032.453;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 120;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 123;
+    LinkTrId = 124;
+    XPos = 21759.015;
+    YPos = 108.195;
+    ZPos = 154088.875;
+    XOri = 0.00;
+    YOri = 7.03;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 124;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21759.015;
+    YPos = 108.395;
+    ZPos = 154088.875;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 123;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 126;
+    LinkTrId = 127;
+    XPos = 21730.097;
+    YPos = 108.193;
+    ZPos = 154100.903;
+    XOri = 0.00;
+    YOri = 9.55;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 127;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21730.097;
+    YPos = 108.393;
+    ZPos = 154100.903;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 126;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 129;
+    LinkTrId = 130;
+    XPos = 21717.739;
+    YPos = 108.648;
+    ZPos = 154129.920;
+    XOri = 0.00;
+    YOri = 7.03;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 130;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21717.739;
+    YPos = 108.848;
+    ZPos = 154129.920;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 129;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 132;
+    LinkTrId = 133;
+    XPos = 21693.953;
+    YPos = 108.698;
+    ZPos = 154150.934;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 133;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21693.953;
+    YPos = 108.898;
+    ZPos = 154150.934;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 132;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 135;
+    LinkTrId = 136;
+    XPos = 21632.231;
+    YPos = 109.179;
+    ZPos = 154234.386;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 136;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21632.231;
+    YPos = 109.379;
+    ZPos = 154234.386;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 135;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 138;
+    LinkTrId = 139;
+    XPos = 21607.216;
+    YPos = 109.395;
+    ZPos = 154245.680;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 139;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21607.216;
+    YPos = 109.595;
+    ZPos = 154245.680;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 138;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 141;
+    LinkTrId = 142;
+    XPos = 21591.469;
+    YPos = 109.464;
+    ZPos = 154265.686;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 142;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21591.469;
+    YPos = 109.664;
+    ZPos = 154265.686;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 141;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 144;
+    LinkTrId = 145;
+    XPos = 21570.487;
+    YPos = 109.619;
+    ZPos = 154280.462;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 145;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21570.487;
+    YPos = 109.819;
+    ZPos = 154280.462;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 144;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 147;
+    LinkTrId = 148;
+    XPos = 21547.557;
+    YPos = 110.199;
+    ZPos = 154299.445;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 148;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21547.557;
+    YPos = 110.399;
+    ZPos = 154299.445;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 147;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 150;
+    LinkTrId = 151;
+    XPos = 21524.255;
+    YPos = 110.250;
+    ZPos = 154317.799;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 151;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21524.255;
+    YPos = 110.450;
+    ZPos = 154317.799;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 150;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 153;
+    LinkTrId = 154;
+    XPos = 21499.519;
+    YPos = 110.211;
+    ZPos = 154332.635;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 154;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21499.519;
+    YPos = 110.411;
+    ZPos = 154332.635;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 153;
+  }
+  
+
+  Effect
+  {
+    Name = "Effect";
+    Index = 156;
+    LinkTrId = 157;
+    XPos = 21470.269;
+    YPos = 110.504;
+    ZPos = 154351.548;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\signalsmoke_black.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 157;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 21470.269;
+    YPos = 110.704;
+    ZPos = 154351.548;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 156;
+  }
+  
+
+  MCU_Counter
+  {
+    Index = 5;
+    Name = "Russian Tanks killed";
+    Desc = "";
+    Targets = [160,161,162,163,164,165,166];
+    Objects = [];
+    XPos = 21786.500;
+    YPos = 56.754;
+    ZPos = 154342.263;
+    XOri = 0.00;
+    YOri = 179.01;
+    ZOri = 0.00;
+    Counter = 6;
+    Dropcount = 0;
+  }
+  
+
+  MCU_CMD_ForceComplete
+  {
+    Index = 160;
+    Name = "command Force Complete";
+    Desc = "";
+    Targets = [];
+    Objects = [3,7,10,13,16,19,22,25];
+    XPos = 21761.700;
+    YPos = 57.124;
+    ZPos = 154342.968;
+    XOri = 0.00;
+    YOri = 179.01;
+    ZOri = 0.00;
+    Priority = 2;
+    EmergencyOrdnanceDrop = 0;
+  }
+  
+
+  MCU_CMD_Effect
+  {
+    Index = 161;
+    Name = "Start Smoke";
+    Desc = "";
+    Targets = [];
+    Objects = [133,130,127,124,118,121,115,136,139,142,145,148,151,154,157];
+    XPos = 21759.087;
+    YPos = 57.352;
+    ZPos = 154304.406;
+    XOri = 0.00;
+    YOri = 179.01;
+    ZOri = 0.00;
+    ActionType = 0;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 164;
+    Name = "Smoke Timer";
+    Desc = "";
+    Targets = [170];
+    Objects = [];
+    XPos = 21768.830;
+    YPos = 57.427;
+    ZPos = 154303.638;
+    XOri = 0.00;
+    YOri = 179.01;
+    ZOri = 0.00;
+    Time = 180;
+    Random = 100;
+  }
+  
+
+  MCU_CMD_Effect
+  {
+    Index = 170;
+    Name = "Stop Smoke";
+    Desc = "";
+    Targets = [];
+    Objects = [115,121,118,124,127,130,133,136,139,142,145,148,151,154,157];
+    XPos = 21779.751;
+    YPos = 57.380;
+    ZPos = 154302.706;
+    XOri = 0.00;
+    YOri = 179.01;
+    ZOri = 0.00;
+    ActionType = 1;
+  }
+  
+
+  MCU_Waypoint
+  {
+    Index = 162;
+    Name = "Russian tank fallback";
+    Desc = "";
+    Targets = [];
+    Objects = [3,7,10,13,16,19,22,25];
+    XPos = 23047.377;
+    YPos = 97.690;
+    ZPos = 156257.613;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Area = 200;
+    Speed = 100;
+    Priority = 1;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 173;
+    Name = "German tank defeat timer 1";
+    Desc = "";
+    Targets = [174,175];
+    Objects = [];
+    XPos = 20062.795;
+    YPos = 51.426;
+    ZPos = 151882.071;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 600;
+    Random = 50;
+  }
+  
+
+  Effect
+  {
+    Name = "German tank killed";
+    Index = 176;
+    LinkTrId = 177;
+    XPos = 20028.409;
+    YPos = 101.665;
+    ZPos = 152016.203;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\ammoexplosion.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 177;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 20028.409;
+    YPos = 101.865;
+    ZPos = 152016.203;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 176;
+  }
+  
+
+  MCU_CMD_Effect
+  {
+    Index = 179;
+    Name = "Command Effect";
+    Desc = "";
+    Targets = [];
+    Objects = [177];
+    XPos = 20032.067;
+    YPos = 52.456;
+    ZPos = 152005.349;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    ActionType = 0;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 180;
+    Name = "German tank defeat timer 1";
+    Desc = "";
+    Targets = [181,182];
+    Objects = [];
+    XPos = 20062.541;
+    YPos = 50.749;
+    ZPos = 151905.368;
+    XOri = 0.00;
+    YOri = 0.28;
+    ZOri = 0.00;
+    Time = 915;
+    Random = 75;
+  }
+  
+
+  Effect
+  {
+    Name = "German tank killed";
+    Index = 183;
+    LinkTrId = 184;
+    XPos = 19975.272;
+    YPos = 101.393;
+    ZPos = 152061.598;
+    XOri = 0.00;
+    YOri = 0.28;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\ammoexplosion.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 184;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 19975.272;
+    YPos = 101.593;
+    ZPos = 152061.598;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 183;
+  }
+  
+
+  MCU_CMD_Effect
+  {
+    Index = 186;
+    Name = "Command Effect";
+    Desc = "";
+    Targets = [];
+    Objects = [184];
+    XPos = 19983.938;
+    YPos = 54.110;
+    ZPos = 152055.819;
+    XOri = 0.00;
+    YOri = 0.28;
+    ZOri = 0.00;
+    ActionType = 0;
+  }
+  
+
+  MCU_CMD_Damage
+  {
+    Index = 187;
+    Name = "command Damage";
+    Desc = "";
+    Targets = [];
+    Objects = [51];
+    XPos = 20023.073;
+    YPos = 52.327;
+    ZPos = 152006.240;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Damage = 2;
+    Type = 1;
+  }
+  
+
+  MCU_CMD_Damage
+  {
+    Index = 188;
+    Name = "command Damage";
+    Desc = "";
+    Targets = [];
+    Objects = [42];
+    XPos = 19978.610;
+    YPos = 54.106;
+    ZPos = 152055.728;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Damage = 2;
+    Type = 1;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 189;
+    Name = "German tank defeat timer 1";
+    Desc = "";
+    Targets = [190,191];
+    Objects = [];
+    XPos = 19991.979;
+    YPos = 54.227;
+    ZPos = 151882.706;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 745;
+    Random = 50;
+  }
+  
+
+  MCU_CMD_Effect
+  {
+    Index = 192;
+    Name = "Command Effect";
+    Desc = "";
+    Targets = [];
+    Objects = [193];
+    XPos = 19918.387;
+    YPos = 56.133;
+    ZPos = 152096.691;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    ActionType = 0;
+  }
+  
+
+  MCU_CMD_Damage
+  {
+    Index = 194;
+    Name = "command Damage";
+    Desc = "";
+    Targets = [];
+    Objects = [33];
+    XPos = 19913.045;
+    YPos = 55.921;
+    ZPos = 152096.908;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Damage = 2;
+    Type = 1;
+  }
+  
+
+  Effect
+  {
+    Name = "German tank killed";
+    Index = 195;
+    LinkTrId = 193;
+    XPos = 19918.516;
+    YPos = 101.989;
+    ZPos = 152106.972;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\ammoexplosion.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 193;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 19918.516;
+    YPos = 102.189;
+    ZPos = 152106.972;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 195;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 197;
+    Name = "German tank defeat timer 1";
+    Desc = "";
+    Targets = [198,199];
+    Objects = [];
+    XPos = 19990.440;
+    YPos = 52.590;
+    ZPos = 151908.566;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 1062;
+    Random = 75;
+  }
+  
+
+  MCU_CMD_Effect
+  {
+    Index = 200;
+    Name = "Command Effect";
+    Desc = "";
+    Targets = [];
+    Objects = [201];
+    XPos = 19935.067;
+    YPos = 55.538;
+    ZPos = 152083.241;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    ActionType = 0;
+  }
+  
+
+  MCU_CMD_Damage
+  {
+    Index = 202;
+    Name = "command Damage";
+    Desc = "";
+    Targets = [];
+    Objects = [36];
+    XPos = 19930.343;
+    YPos = 55.489;
+    ZPos = 152083.233;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Damage = 2;
+    Type = 1;
+  }
+  
+
+  Effect
+  {
+    Name = "German tank killed";
+    Index = 203;
+    LinkTrId = 201;
+    XPos = 19935.814;
+    YPos = 101.982;
+    ZPos = 152093.297;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\ammoexplosion.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 201;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 19935.814;
+    YPos = 102.182;
+    ZPos = 152093.297;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 203;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 205;
+    Name = "German tank defeat timer 1";
+    Desc = "";
+    Targets = [206,207];
+    Objects = [];
+    XPos = 19990.618;
+    YPos = 49.676;
+    ZPos = 151936.547;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 1425;
+    Random = 100;
+  }
+  
+
+  MCU_CMD_Effect
+  {
+    Index = 208;
+    Name = "Command Effect";
+    Desc = "";
+    Targets = [];
+    Objects = [209];
+    XPos = 19902.545;
+    YPos = 56.070;
+    ZPos = 152110.292;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    ActionType = 0;
+  }
+  
+
+  MCU_CMD_Damage
+  {
+    Index = 210;
+    Name = "command Damage";
+    Desc = "";
+    Targets = [];
+    Objects = [28];
+    XPos = 19895.060;
+    YPos = 55.805;
+    ZPos = 152110.818;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Damage = 2;
+    Type = 1;
+  }
+  
+
+  Effect
+  {
+    Name = "German tank killed";
+    Index = 211;
+    LinkTrId = 209;
+    XPos = 19901.684;
+    YPos = 101.664;
+    ZPos = 152122.148;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\ammoexplosion.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 209;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 19901.684;
+    YPos = 101.864;
+    ZPos = 152122.148;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 211;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 213;
+    Name = "German tank defeat timer 1";
+    Desc = "";
+    Targets = [214,215];
+    Objects = [];
+    XPos = 20060.994;
+    YPos = 50.055;
+    ZPos = 151932.421;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 1260;
+    Random = 100;
+  }
+  
+
+  MCU_CMD_Effect
+  {
+    Index = 216;
+    Name = "Command Effect";
+    Desc = "";
+    Targets = [];
+    Objects = [217];
+    XPos = 19957.689;
+    YPos = 54.849;
+    ZPos = 152069.304;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    ActionType = 0;
+  }
+  
+
+  MCU_CMD_Damage
+  {
+    Index = 218;
+    Name = "command Damage";
+    Desc = "";
+    Targets = [];
+    Objects = [39];
+    XPos = 19953.998;
+    YPos = 54.811;
+    ZPos = 152069.303;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Damage = 2;
+    Type = 1;
+  }
+  
+
+  Effect
+  {
+    Name = "German tank killed";
+    Index = 219;
+    LinkTrId = 217;
+    XPos = 19954.238;
+    YPos = 101.840;
+    ZPos = 152080.259;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Script = "luascripts\worldobjects\mapemitters\ammoexplosion.txt";
+    Model = "";
+    Desc = "";
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 217;
+    Name = "Effect entity";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 19954.238;
+    YPos = 102.040;
+    ZPos = 152080.259;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 219;
+  }
+  
+
+  MCU_Deactivate
+  {
+    Index = 163;
+    Name = "Trigger Deactivate";
+    Desc = "";
+    Targets = [173,180,213,189,197,205];
+    Objects = [];
+    XPos = 20163.107;
+    YPos = 52.168;
+    ZPos = 152066.015;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+  }
+  
+
+  MCU_TR_ComplexTrigger
+  {
+    Index = 222;
+    Name = "Translator Complex Trigger";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 20772.182;
+    YPos = 115.345;
+    ZPos = 153111.980;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    Enabled = 1;
+    Cylinder = 1;
+    Radius = 4000;
+    DamageThreshold = 0;
+    DamageReport = 50;
+    CheckVehicles = 0;
+    CheckPlanes = 1;
+    EventsFilterSpawned = 0;
+    EventsFilterEnteredSimple = 1;
+    EventsFilterEnteredAlive = 0;
+    EventsFilterLeftSimple = 0;
+    EventsFilterLeftAlive = 0;
+    EventsFilterFinishedSimple = 0;
+    EventsFilterFinishedAlive = 0;
+    EventsFilterStationaryAndAlive = 0;
+    EventsFilterFinishedStationaryAndAlive = 0;
+    EventsFilterTookOff = 0;
+    EventsFilterDamaged = 0;
+    EventsFilterCriticallyDamaged = 0;
+    EventsFilterRepaired = 0;
+    EventsFilterKilled = 0;
+    EventsFilterDropedBombs = 0;
+    EventsFilterFiredFlare = 0;
+    EventsFilterFiredRockets = 0;
+    EventsFilterDroppedCargoContainers = 0;
+    EventsFilterDeliveredCargo = 0;
+    EventsFilterParatrooperJumped = 0;
+    EventsFilterParatrooperLandedAlive = 0;
+    Country = 201;
+    ObjectScript = "luascripts\worldobjects\planes\ju87d3.txt";
+    OnEvents
+    {
+      OnEvent
+      {
+        Type = 58;
+        TarId = 173;
+      }
+      OnEvent
+      {
+        Type = 58;
+        TarId = 180;
+      }
+      OnEvent
+      {
+        Type = 58;
+        TarId = 213;
+      }
+      OnEvent
+      {
+        Type = 58;
+        TarId = 189;
+      }
+      OnEvent
+      {
+        Type = 58;
+        TarId = 197;
+      }
+      OnEvent
+      {
+        Type = 58;
+        TarId = 205;
+      }
+    }
+  }
+  
+
+  MCU_CMD_AttackArea
+  {
+    Index = 223;
+    Name = "Russian AttackArea";
+    Desc = "";
+    Targets = [];
+    Objects = [3,7,10,13,16,19,22,25];
+    XPos = 19966.308;
+    YPos = 200.000;
+    ZPos = 152070.895;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    AttackGround = 1;
+    AttackAir = 0;
+    AttackGTargets = 0;
+    AttackArea = 85;
+    Time = 59940;
+    Priority = 2;
+  }
+  
+
+  MCU_TR_MissionBegin
+  {
+    Index = 224;
+    Name = "Translator Mission Begin";
+    Desc = "";
+    Targets = [225];
+    Objects = [];
+    XPos = 20559.201;
+    YPos = 120.376;
+    ZPos = 153406.032;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Enabled = 1;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 225;
+    Name = "Trigger Timer";
+    Desc = "";
+    Targets = [223,227,228];
+    Objects = [];
+    XPos = 20461.220;
+    YPos = 119.662;
+    ZPos = 153400.875;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 0;
+    Random = 100;
+  }
+  
+
+  MCU_CMD_AttackArea
+  {
+    Index = 227;
+    Name = "German AttackArea1";
+    Desc = "";
+    Targets = [];
+    Objects = [51,45,39,33];
+    XPos = 21781.803;
+    YPos = 200.000;
+    ZPos = 154113.282;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    AttackGround = 1;
+    AttackAir = 0;
+    AttackGTargets = 0;
+    AttackArea = 100;
+    Time = 59940;
+    Priority = 2;
+  }
+  
+
+  MCU_Waypoint
+  {
+    Index = 165;
+    Name = "German victory Waypoint";
+    Desc = "";
+    Targets = [];
+    Objects = [51,48,45,42,39,36,33,28];
+    XPos = 21817.159;
+    YPos = 56.996;
+    ZPos = 154450.575;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Area = 100;
+    Speed = 100;
+    Priority = 1;
+  }
+  
+
+  MCU_Waypoint
+  {
+    Index = 58;
+    Name = "Russian Victory Waypoint";
+    Desc = "";
+    Targets = [];
+    Objects = [3,7,10,13,16,19,22,25];
+    XPos = 19902.832;
+    YPos = 48.047;
+    ZPos = 151957.486;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Area = 100;
+    Speed = 100;
+    Priority = 1;
+  }
+  
+
+  MCU_CMD_Formation
+  {
+    Index = 232;
+    Name = "Command Formation";
+    Desc = "";
+    Targets = [];
+    Objects = [3,7,10,13,16,19,22,25];
+    XPos = 21851.295;
+    YPos = 57.037;
+    ZPos = 154426.378;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+  FormationType = 5;
+  FormationDensity = 2;
+  }
+  
+
+  MCU_CMD_Formation
+  {
+    Index = 233;
+    Name = "Command Formation";
+    Desc = "";
+    Targets = [];
+    Objects = [51,48,45,42,39,36,33,28];
+    XPos = 20126.613;
+    YPos = 52.452;
+    ZPos = 151904.942;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+  FormationType = 5;
+  FormationDensity = 2;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 166;
+    Name = "Trigger Timer";
+    Desc = "";
+    Targets = [233,235];
+    Objects = [];
+    XPos = 21815.782;
+    YPos = 57.145;
+    ZPos = 154341.571;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 5;
+    Random = 100;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 59;
+    Name = "Trigger Timer";
+    Desc = "";
+    Targets = [237,58];
+    Objects = [];
+    XPos = 19879.194;
+    YPos = 50.812;
+    ZPos = 151833.037;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 5;
+    Random = 100;
+  }
+  
+
+  MCU_CMD_AttackArea
+  {
+    Index = 228;
+    Name = "German AttackArea2";
+    Desc = "";
+    Targets = [];
+    Objects = [48,42,36,28];
+    XPos = 21567.207;
+    YPos = 200.000;
+    ZPos = 154323.335;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    AttackGround = 1;
+    AttackAir = 0;
+    AttackGTargets = 0;
+    AttackArea = 110;
+    Time = 59940;
+    Priority = 2;
+  }
+  
+
+  MCU_Deactivate
+  {
+    Index = 235;
+    Name = "Trigger Deactivate";
+    Desc = "";
+    Targets = [227,228];
+    Objects = [];
+    XPos = 21855.082;
+    YPos = 57.476;
+    ZPos = 154341.681;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+  }
+  
+
+  MCU_Deactivate
+  {
+    Index = 60;
+    Name = "Trigger Deactivate";
+    Desc = "";
+    Targets = [223,5];
+    Objects = [];
+    XPos = 19878.691;
+    YPos = 51.475;
+    ZPos = 151888.544;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 237;
+    Name = "Trigger Timer";
+    Desc = "";
+    Targets = [232];
+    Objects = [];
+    XPos = 19929.509;
+    YPos = 51.022;
+    ZPos = 151832.064;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 120;
+    Random = 100;
+  }
+  
+
+  MCU_CMD_ForceComplete
+  {
+    Index = 62;
+    Name = "command Force Complete";
+    Desc = "";
+    Targets = [];
+    Objects = [3,7,10,13,16,19,22,25];
+    XPos = 19960.050;
+    YPos = 54.167;
+    ZPos = 151831.622;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Priority = 2;
+    EmergencyOrdnanceDrop = 0;
+  }
+  
+
+  MCU_CMD_ForceComplete
+  {
+    Index = 174;
+    Name = "command Force Complete";
+    Desc = "";
+    Targets = [];
+    Objects = [51];
+    XPos = 20028.111;
+    YPos = 51.815;
+    ZPos = 151990.119;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Priority = 2;
+    EmergencyOrdnanceDrop = 0;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 175;
+    Name = "Trigger Timer";
+    Desc = "";
+    Targets = [179,187];
+    Objects = [];
+    XPos = 20028.262;
+    YPos = 52.097;
+    ZPos = 151998.985;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 0.1;
+    Random = 100;
+  }
+  
+
+  MCU_CMD_ForceComplete
+  {
+    Index = 181;
+    Name = "command Force Complete";
+    Desc = "";
+    Targets = [];
+    Objects = [42];
+    XPos = 19981.147;
+    YPos = 51.815;
+    ZPos = 152040.445;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Priority = 2;
+    EmergencyOrdnanceDrop = 0;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 182;
+    Name = "Trigger Timer";
+    Desc = "";
+    Targets = [186,188];
+    Objects = [];
+    XPos = 19981.298;
+    YPos = 52.097;
+    ZPos = 152049.311;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 0.1;
+    Random = 100;
+  }
+  
+
+  MCU_CMD_ForceComplete
+  {
+    Index = 214;
+    Name = "command Force Complete";
+    Desc = "";
+    Targets = [];
+    Objects = [39];
+    XPos = 19955.416;
+    YPos = 51.815;
+    ZPos = 152053.312;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Priority = 2;
+    EmergencyOrdnanceDrop = 0;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 215;
+    Name = "Trigger Timer";
+    Desc = "";
+    Targets = [216,218];
+    Objects = [];
+    XPos = 19955.567;
+    YPos = 52.097;
+    ZPos = 152062.178;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 0.1;
+    Random = 100;
+  }
+  
+
+  MCU_CMD_ForceComplete
+  {
+    Index = 198;
+    Name = "command Force Complete";
+    Desc = "";
+    Targets = [];
+    Objects = [36];
+    XPos = 19932.654;
+    YPos = 51.815;
+    ZPos = 152068.265;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Priority = 2;
+    EmergencyOrdnanceDrop = 0;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 199;
+    Name = "Trigger Timer";
+    Desc = "";
+    Targets = [200,202];
+    Objects = [];
+    XPos = 19932.805;
+    YPos = 52.097;
+    ZPos = 152077.131;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 0.1;
+    Random = 100;
+  }
+  
+
+  MCU_CMD_ForceComplete
+  {
+    Index = 190;
+    Name = "command Force Complete";
+    Desc = "";
+    Targets = [];
+    Objects = [33];
+    XPos = 19915.321;
+    YPos = 51.815;
+    ZPos = 152079.169;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Priority = 2;
+    EmergencyOrdnanceDrop = 0;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 191;
+    Name = "Trigger Timer";
+    Desc = "";
+    Targets = [192,194];
+    Objects = [];
+    XPos = 19915.472;
+    YPos = 52.097;
+    ZPos = 152088.035;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 0.1;
+    Random = 100;
+  }
+  
+
+  MCU_CMD_ForceComplete
+  {
+    Index = 207;
+    Name = "command Force Complete";
+    Desc = "";
+    Targets = [];
+    Objects = [28];
+    XPos = 19898.816;
+    YPos = 51.815;
+    ZPos = 152095.562;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Priority = 2;
+    EmergencyOrdnanceDrop = 0;
+  }
+  
+
+  MCU_Timer
+  {
+    Index = 206;
+    Name = "Trigger Timer";
+    Desc = "";
+    Targets = [208,210];
+    Objects = [];
+    XPos = 19898.967;
+    YPos = 52.097;
+    ZPos = 152104.428;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Time = 0.1;
+    Random = 100;
+  }
+  
+
+}
+
