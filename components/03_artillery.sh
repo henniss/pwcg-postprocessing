@@ -362,7 +362,7 @@ MCU_Timer
   XOri = 0.00;
   YOri = 0.00;
   ZOri = 0.00;
-  Time = 0.12;
+  Time = 0.20;
   Random = 100;
 }
 
