@@ -1,10 +1,9 @@
 
 shouldApply () {
-    echo "PAUSE_FOR_EDITS: ${PAUSE_FOR_EDITS:-}"
-    if [[ -z ${PAUSE_FOR_EDITS+x} ]]; then
-        return 1
+    if [[ ${PAUSE_FOR_EDITS:-} == "true" ]]; then
+        return 0
     fi
-    return 0
+    return 1
 }
 
 apply () {
