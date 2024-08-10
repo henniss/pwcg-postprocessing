@@ -1,0 +1,333 @@
+Group
+{
+  Name = "Train";
+  Index = 193;
+  Desc = "Train";
+  Group
+  {
+    Name = "Logic";
+    Index = 219;
+    Desc = "";
+    MCU_TR_MissionBegin
+    {
+      Index = 194;
+      Name = "Mission Begin";
+      Desc = "Mission Begin";
+      Targets = [195];
+      Objects = [];
+      XPos = 7398.782;
+      YPos = 0.000;
+      ZPos = 22916.695;
+      XOri = 0.00;
+      YOri = 0.00;
+      ZOri = 0.00;
+      Enabled = 1;
+    }
+    
+
+    MCU_Timer
+    {
+      Index = 195;
+      Name = "Mission Begin Timer";
+      Desc = "Mission Begin Timer";
+      Targets = [197];
+      Objects = [];
+      XPos = 7399.046;
+      YPos = 0.000;
+      ZPos = 22916.959;
+      XOri = 0.00;
+      YOri = 0.00;
+      ZOri = 0.00;
+      Time = 0.1;
+      Random = 100;
+    }
+    
+
+    MCU_Timer
+    {
+      Index = 202;
+      Name = "Ground Unit Spawn Timer";
+      Desc = "Ground Unit Spawn Timer";
+      Targets = [209];
+      Objects = [];
+      XPos = 7399.202;
+      YPos = 0.000;
+      ZPos = 22916.499;
+      XOri = 0.00;
+      YOri = 0.00;
+      ZOri = 0.00;
+      Time = 0.1;
+      Random = 100;
+    }
+    
+
+    MCU_Timer
+    {
+      Index = 209;
+      Name = "Ground Element Activate Timer";
+      Desc = "Ground Element Activate Timer";
+      Targets = [214];
+      Objects = [];
+      XPos = 7400.982;
+      YPos = 0.000;
+      ZPos = 22916.079;
+      XOri = 0.00;
+      YOri = 0.00;
+      ZOri = 0.00;
+      Time = 0.1;
+      Random = 100;
+    }
+    
+
+    MCU_Timer
+    {
+      Index = 214;
+      Name = "Vehicle WP Timer";
+      Desc = "Vehicle WP TImer";
+      Targets = [216];
+      Objects = [];
+      XPos = 7400.982;
+      YPos = 0.000;
+      ZPos = 22916.079;
+      XOri = 0.00;
+      YOri = 0.00;
+      ZOri = 0.00;
+      Time = 0.1;
+      Random = 100;
+    }
+    
+
+    MCU_Timer
+    {
+      Index = 197;
+      Name = "CZ Activate Timer";
+      Desc = "CZ Activate Timer";
+      Targets = [220];
+      Objects = [];
+      XPos = 7398.896;
+      YPos = 0.000;
+      ZPos = 22916.926;
+      XOri = 0.00;
+      YOri = 0.00;
+      ZOri = 0.00;
+      Time = 1;
+      Random = 100;
+    }
+    
+
+    MCU_Timer
+    {
+      Index = 203;
+      Name = "CZ Deactivate Timer";
+      Desc = "CZ Deactivate Timer";
+      Targets = [205];
+      Objects = [];
+      XPos = 7398.253;
+      YPos = 0.000;
+      ZPos = 22917.483;
+      XOri = 0.00;
+      YOri = 0.00;
+      ZOri = 0.00;
+      Time = 1;
+      Random = 100;
+    }
+    
+
+    MCU_Deactivate
+    {
+      Index = 205;
+      Name = "CZ Deactivate";
+      Desc = "CZ Deactivate";
+      Targets = [197];
+      Objects = [220];
+      XPos = 7398.211;
+      YPos = 0.000;
+      ZPos = 22916.346;
+      XOri = 0.00;
+      YOri = 0.00;
+      ZOri = 0.00;
+    }
+    
+
+    MCU_TR_ComplexTrigger
+    {
+      Index = 220;
+      Name = "Detect Ju 87";
+      Desc = "";
+      Targets = [];
+      Objects = [];
+      XPos = 7398.680;
+      YPos = 131.590;
+      ZPos = 22916.546;
+      XOri = 0.00;
+      YOri = 0.00;
+      ZOri = 0.00;
+      Enabled = 1;
+      Enabled = 1;
+      Cylinder = 1;
+      Radius = 10000;
+      DamageThreshold = 1;
+      DamageReport = 50;
+      CheckVehicles = 0;
+      CheckPlanes = 0;
+      EventsFilterSpawned = 0;
+      EventsFilterEnteredSimple = 1;
+      EventsFilterEnteredAlive = 0;
+      EventsFilterLeftSimple = 0;
+      EventsFilterLeftAlive = 0;
+      EventsFilterFinishedSimple = 0;
+      EventsFilterFinishedAlive = 0;
+      EventsFilterStationaryAndAlive = 0;
+      EventsFilterFinishedStationaryAndAlive = 0;
+      EventsFilterTookOff = 0;
+      EventsFilterDamaged = 0;
+      EventsFilterCriticallyDamaged = 0;
+      EventsFilterRepaired = 0;
+      EventsFilterKilled = 0;
+      EventsFilterDropedBombs = 0;
+      EventsFilterFiredFlare = 0;
+      EventsFilterFiredRockets = 0;
+      EventsFilterDroppedCargoContainers = 0;
+      EventsFilterDeliveredCargo = 0;
+      EventsFilterParatrooperJumped = 0;
+      EventsFilterParatrooperLandedAlive = 0;
+      ObjectScript = "luascripts\worldobjects\planes\ju87d3.txt";
+      OnEvents
+      {
+        OnEvent
+        {
+          Type = 58;
+          TarId = 221;
+        }
+      }
+    }
+    
+
+    MCU_Timer
+    {
+      Index = 221;
+      Name = "1s";
+      Desc = "CZ Deactivate Timer";
+      Targets = [203,202,223];
+      Objects = [];
+      XPos = 7398.407;
+      YPos = 0.000;
+      ZPos = 22916.774;
+      XOri = 0.00;
+      YOri = 0.00;
+      ZOri = 0.00;
+      Time = 1;
+      Random = 100;
+    }
+    
+
+    MCU_TR_Subtitle
+    {
+      Index = 223;
+      Name = "DEBUG";
+      Desc = "";
+      Targets = [];
+      Objects = [];
+      XPos = 7398.672;
+      YPos = 130.814;
+      ZPos = 22916.809;
+      XOri = 0.00;
+      YOri = 0.00;
+      ZOri = 0.00;
+      Enabled = 1;
+      SubtitleInfo
+      {
+        Duration = 5;
+        FontSize = 20;
+        HAlign = 1;
+        VAlign = 2;
+        RColor = 255;
+        GColor = 0;
+        BColor = 0;
+        LCText = 3;
+      }
+      
+      Coalitions = [0, 1, 2, 3, 4];
+    }
+    
+
+  }
+  
+
+  Train
+  {
+    Name = "XXX Locomotive";
+    Index = 210;
+    LinkTrId = 211;
+    XPos = 7387.316;
+    YPos = 0.000;
+    ZPos = 22946.590;
+    XOri = 0.00;
+    YOri = 331.00;
+    ZOri = 0.00;
+    Script = "LuaScripts\WorldObjects\trains\g8.txt";
+    Model = "graphics\trains\g8\g8.mgm";
+    Desc = "";
+    Country = 101;
+    Vulnerable = 1;
+    Engageable = 1;
+    LimitAmmo = 1;
+    AILevel = 1;
+    DamageReport = 50;
+    DamageThreshold = 1;
+    DeleteAfterDeath = 0;
+    Spotter = -1;
+    BeaconChannel = 0;
+    Callsign = 0;
+    Carriages
+    {
+      "LuaScripts\WorldObjects\trains\g8t.txt";
+      "LuaScripts\WorldObjects\trains\platformaa-61k.txt";
+      "LuaScripts\WorldObjects\trains\platformemptynb.txt";
+      "LuaScripts\WorldObjects\trains\tanknb.txt";
+      "LuaScripts\WorldObjects\trains\gondolab.txt";
+      "LuaScripts\WorldObjects\trains\platformaa-m4.txt";
+    }
+    
+  }
+  
+
+  MCU_TR_Entity
+  {
+    Index = 211;
+    Name = "";
+    Desc = "";
+    Targets = [];
+    Objects = [];
+    XPos = 7387.316;
+    YPos = 0.200;
+    ZPos = 22946.590;
+    XOri = 0.00;
+    YOri = 331.00;
+    ZOri = 0.00;
+    Enabled = 1;
+    MisObjID = 210;
+  }
+  
+
+  MCU_Waypoint
+  {
+    Index = 216;
+    Name = "XXX Move To";
+    Desc = "Vehicle Waypoint";
+    Targets = [];
+    Objects = [211];
+    XPos = 9451.411;
+    YPos = 0.000;
+    ZPos = 24241.461;
+    XOri = 0.00;
+    YOri = 0.00;
+    ZOri = 0.00;
+    Area = 0;
+    Speed = 12;
+    Priority = 1;
+  }
+  
+
+}
+
