@@ -48,8 +48,8 @@ EOF
 
     speed=$(cat $tempfile | sed -e 's/.*:.*:[[:space:]]*\([[:digit:]]*\);.*/\1/')
     echo "${new@Q} ${speed@Q}"
-    dir=$(($new % 360))
-    briefing_text=$(perl -e "printf '<br><br>Wind: to %d at %d m\/s', $dir, $speed")
+    dir=$((($new + 180) % 360))
+    briefing_text=$(perl -e "printf '<br><br>Wind: from %d at %d m\/s', $dir, $speed")
     
     echo "${briefing_text@Q}"
     
