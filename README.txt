@@ -2,11 +2,12 @@ This repo contains scripts to tweak PWCG missions to my tastes.
 
 They're all kind of crap; I threw these together quickly to solve problems as I ran into them, but they're not polished or anything. 
 
-This is written with 15.x.x in mind; I've not tested it with 16.x.x
+This should probably work with 15.x.x and 16.x.x
 
 Installation: 
 
 * Install cygwin. Make sure to select the dos2unix, ed, jq, libiconv, and perl packages. 
+* On first run core.bat will create a config.sh file. Edit the relevant variables to point to appropriate filesystem paths.
 * Edit core.sh and make sure to point the relevant variables to appropriate filesystem paths.
 * Set "Build Binary Mission File" to 0 in PWCG global configs.
 * Generate a new mission.
