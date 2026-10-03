@@ -93,8 +93,11 @@ missionCore="${missionBase%.*}"
 
 if [[ $missionCore =~ ^_.* ]]; then
     echo "stripping leading underscore from filename"
-    rm "${missionDir}/${missionCore#_}"*
-    for f in "${missionDir}/${missionCore}"*; do
+    shopt -s nullglob
+    old=( "${missionDir}/${missionCore#_}".* )
+    shopt -u nullglob
+    (( ${#old[@]} > 0 )) && rm "${old[@]}"
+    for f in "${missionDir}/${missionCore}".*; do
         echo "$f"
         x="$(basename "${f}")"
         cp "${missionDir}/${x}" "${missionDir}/${x#_}"
@@ -183,7 +186,7 @@ componentError () {
 makeBackup () (
     set -e
     mkdir -p "${backups}"
-    cp "${mdir?}/${missionBase?}".* "${backups?}"
+    cp "${mdir?}/${missionCore#_}".* "${backups?}"
 )
 
 restoreBackup () (
@@ -194,8 +197,8 @@ restoreBackup () (
     echo "restoring..."
 
     mkdir -p "${trash}"
-    mv "${mdir?}/${missionBase?}".* "${trash}"
-    cp -n -f "${backups?}/${missionBase?}".* "${mdir?}"
+    mv "${mdir?}/${missionCore#_}".* "${trash}"
+    cp -n -f "${backups?}/${missionCore#_}".* "${mdir?}"
 )
 
 makeBackup "${mission}"
